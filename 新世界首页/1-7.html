@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>网页布局模拟</title>
+	<style>
+		*{
+			margin:0;
+			padding: 0;
+		}
+		ul,li,ol{
+			list-style: none;
+		}
+		header{
+			width: 1280px;
+			height: 60px;
+			margin:0 auto;
+			position: relative;
+		}
+		.topleft{
+			position: absolute;
+			top :0;
+			left: 0;
+			width: 200px;
+			height: 60px;
+			}
+		.top-left .top-logo{
+			display: block;
+			width: 54px;
+			height: 40px;
+			background:url(images/sprites.png) 6px 0 no-repeat;
+			position: absolute;
+			top: 12px;
+			left: 10px;
+		}
+		.top-left span{
+			display: block;
+			width: 80px;
+			height: 60px;
+			margin-left: 55px;
+			line-height: 60px;
+			text-align: center;
+			color: grey;
+			font-weight: bold;
+			font-size: 21px;
+			font-family: "微软雅黑";		
+		}
+		.top-right{
+			position: absolute;
+			right:30px;
+			top:0;
+		}
+		.top-right ul {
+			margin-right: 80px;
+		}
+		.top-right ul li{
+			display: inline-block;
+			width: 100px;
+			height: 55px;
+			line-height: 55px;
+			text-align: center;
+		}
+		.top-right ul li a{
+			text-decoration: none;
+			display: block;
+			color: grey;
+			font-size:14px;
+			font-family: "微软雅黑";
+		}
+		.top-right ul li a:hover{
+			border-bottom: 5px solid red;	
+			color: red;
+		}
+		.top-right .login{
+			width: 80px;
+			height: 55px;
+			line-height: 55px;
+			position: absolute;
+			top:0;
+			right: 0;
+		}
+		.top-right .login span{
+			display: block;
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			top:18px;
+			left: 30px;			
+			background: url(images/sprites.png) -128px -11px no-repeat;
+		}
+		.top-right .login a{
+			display: block;
+			position: absolute;
+			right: 0;
+			font-family: "微软雅黑";
+			font-size:14px;
+			color:red;
+			text-align: center;
+			text-decoration: none;
+		}
+		main{
+			width: 1280px;
+			margin: 0 auto;
+		}
+		main .banner{
+			position: relative;
+		}
+		main .banner a{
+			display: block;
+			text-decoration: none;
+			width: 334px;
+			height: 65px;
+			line-height: 65px;
+			background-color: #ee2d2a;
+			border-radius: 3px;
+			color: white;
+			font-size: 30px;
+			text-align: center;
+			border:none;
+			position: absolute;
+			top:429px;
+			left: 127px;
+		}
+		main .banner a:hover{
+			background-color: #e7504d;
+		}
+		main .banner ul{
+			height:254px ;
+			width:1280px;
+		}
+		main .banner ul li{
+			width: 320px;
+			height: 254px;
+			float: left;
+
+		}
+		main .banner ul li span{
+			display: block;
+			width: 50px;
+			height: 50px;
+			margin: 42px 135px;
+			
+		}
+		main .banner ul li .bac-logo1{
+			background: url(images/sprites.png) 0px -63px no-repeat;
+		}
+		main .banner ul li .bac-logo2{
+			background: url(images/sprites.png) -90px -63px no-repeat;
+		}
+		main .banner ul li .bac-logo3{
+			background: url(images/sprites.png) -175px -63px no-repeat;
+		}
+		main .banner ul li .bac-logo4{
+			background: url(images/sprites.png) -264px -63px no-repeat;
+		}
+		main .banner ul li p{
+			font-size: 14px;
+			font-family: "微软雅黑";
+			color: #767777;
+			text-align: center;
+			line-height: 18px;
+			height: 50px;
+			width: 156px;
+			padding: 0 81px;
+			border-left: 2px solid #aaaaaa;
+			margin:0 auto;
+		}
+		main .banner ul li p.no-border{
+			border:none;
+		}
+		main .slogan{
+			width: 100%;
+			height: 360px;	
+			background-color: #ededec;
+			padding:85px 0;
+		}
+		main .slogan .slogan-logo{
+			width: 105px;
+			height: 105px;
+			margin:85px auto;
+			background: url(images/sprites.png) 0 -147px no-repeat;
+
+		}
+		main .slogan p{
+			font-size: 54px;
+			line-height: 57px;
+			color: #a1a1a1;
+			font-family: "华文仿宋";
+			text-align: center;
+		}
+		main .find-form{
+			width: 100%;
+			height: 341px;
+			background: url(images/bac.png);
+			padding-top: 50px;
+			box-sizing: border-box;
+
+		}
+		main .find-form h1{
+			font-family: "微软雅黑";
+			font-size:21px;
+			line-height: 42px;
+			color:#fff;
+			text-align: center;
+		}
+		main .find-form .line{
+			width: 30px;
+			height: 4px;
+			background: #fff;
+			margin: 0 auto;
+		}
+		main .find-form p{
+			font-family: "微软雅黑";
+			font-size: 12px;
+			line-height: 32px;
+			text-align: center;
+			color: #ebe5df;
+		}
+		main .find-form .form-content{
+			margin-top: 50px;
+			margin-left: 123px;
+			width: 1034px;
+
+
+		}
+		select,.find-form a{
+			width: 236px;
+			height: 36px;
+		}
+		main .find-form select{
+			border-radius: 0;
+			padding: 8px 9px 9px 12px;
+ 			-webkit-appearance:none;
+			background-color: #ffffff;
+			background: url(images/find.png) 0 0 no-repeat;
+			margin-right: 30px;
+			float: left;
+			display: inline-block;
+			}
+		.find-form a{
+			display: inline-block;
+			background-color: #be4e48;
+			text-decoration: none;
+			color: #fff;
+			font-family: "微软雅黑";
+			font-size: 14px;
+			line-height: 36px;
+			letter-spacing: 25px;
+			text-align: center;
+			border-radius: 3px;
+		}
+		.form{
+			width: 1030px;
+		}
+		.activity{
+			width: 1280px;
+			height: 605px;
+			background-color: #f8f8f7;
+			padding: 104px 146px;
+			box-sizing: border-box;
+		}
+		.act-display{
+			width: 219px;
+			height: 390px;
+			float: left;
+			margin-right: 37px;
+		}
+		.act-display h1{
+			font-family: "微软雅黑";
+			font-size: 15px;
+			text-align: center;
+			color: #323333;
+			line-height: 25px;
+		}
+		.act-display p{
+			font-family: "微软雅黑";
+			font-size: 13px;
+			text-align: center;
+			color: #818282;
+			line-height: 20px;
+		}
+		.act-display h1.mian-act{
+			font-size:19px;
+			color: #323333;
+			line-height: 29px;
+			letter-spacing: 30px;
+		}
+		.no-margin{
+			margin-right: 0;
+		}
+		.display{
+			height: 1087px;
+			position: relative;
+		}
+		.display .distop-left{
+			width: 852px;
+			height: 566px;
+			position: absolute;
+			top:0;
+			left:0;
+		}
+		.display .distop-right{
+			width: 428px;
+			height: 566px;
+			position: absolute;
+			top:0;
+			right: 0;
+			box-sizing: border-box;
+			padding: 128px 70px;
+		}
+		.display .distop-right h1{
+			font-size: 20px;
+			font-family: "华文仿宋";
+			color:#323333;
+			text-align: center;
+			line-height: 68px;
+		}
+		.display .distop-right h1 .c-grey{
+			color: #7f8080;
+		}
+		.display .distop-right h1 .c-red{
+			color: #e74f4d;
+		}
+		.display .distop-right p{
+			font-size: 12px;
+			line-height: 30px;
+			color: #aaa;
+		}
+		.display a{
+			text-decoration: none;
+			display: block;
+			width: 103px;
+			height: 31px;
+			border:1px solid #e46669;
+			text-align: center;
+			line-height: 31px;
+			color: #e46b6e;
+			margin:0 auto;
+			margin-top: 41px;
+		}
+		.display .distop-right div.loop{
+			width: 64px;
+			height: 12px;
+			margin: 0 auto;
+			margin-top: 18px;
+		}
+		.display .distop-right div span{
+			display: inline-block;	
+			box-sizing: border-box;
+			border:1px solid #919292;
+			width: 12px;
+			height: 12px;
+			border-radius: 6px;	
+			margin-left: 8px;
+		}
+		.display .distop-right div span:first-child{
+			margin-left: 0;
+		}
+		.display .distop-right div span.chosen{
+			background-color: #919292;
+		}
+		.display .bottom-leftf{
+			position: absolute;
+			bottom:0;
+			left: 0;
+			width: 426px;
+			height: 521px;
+			background: #e7504d;
+			color: #fff;
+		}
+		.display .bl{
+			box-sizing: border-box;
+			padding: 128px 70px;
+		}
+		.display .bl h2{
+			font-size: 21px;
+			line-height: 31px;
+			font-weight: 300;
+			text-align: center;
+			font-family: "宋体";
+		}
+		.display .bl div{
+			width: 31px;
+			height: 2px;
+			margin :20px auto;
+			background-color: #fff;
+
+		}
+		.display .bottom-lefts div{
+			background-color: #aaa;
+		}
+		.display .bl a{
+			text-decoration: none;
+			display: block;
+			width: 103px;
+			height: 31px;
+			border:1px solid #e46669;
+			text-align: center;
+			line-height: 31px;
+			color: #e95a58;
+			margin:0 auto;
+		}
+		.display .bottom-leftf a{
+			color:#fff;
+			border-color: #fff;
+		}
+		.display .bottom-lefts{
+			position: absolute;
+			bottom: 0;
+			left: 426px;
+			width: 426px;
+			height: 521px;
+		}
+		.display .bottom-right{
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 428px;
+			height: 521px;
+		}
+		main .vol{
+			width: 1280px;
+			height: 750px;
+			padding: 108px 140px 165px 108px;
+			box-sizing: border-box;
+		}
+		.vol .vol-slogan{
+			width: 420px;
+			height: 90px;
+			margin: 0 auto;
+			margin-bottom: 108px;
+		}
+		.vol .vol-slogan h1{
+			font-size: 21px;
+			line-height: 31px;
+			font-family:"微软雅黑";
+			color: #323333;
+			font-weight: 400;
+			text-align: center;
+		}
+		.vol .vol-slogan div{
+			width: 31px;
+			height: 2px;
+			background-color: #ea6663;
+			margin: 4px auto;
+		}
+		.vol .vol-slogan p{
+			margin-top: 13px;
+			font-size: 12px;
+			line-height: 18px;
+			text-align: center;
+			color: #aaa;
+		}
+		.vol .vol-content{
+			width: 1032px;
+			height: 289px;
+			position: relative;
+		}
+		.vol .vol-content .vol-left{
+			width: 281px;
+			height: 289px;
+			position: absolute;
+			left:0;
+			top:0;
+		}
+		.vol .vol-content .vol-left div{
+			margin-bottom: 38px;
+		}
+		.vol .vol-content .vol-left h2{
+			font-family: "微软雅黑";
+			font-size: 14px;
+			color: #666160;
+			margin-bottom: 22px;
+		}
+		.vol .vol-content .vol-left p{
+			font-size: 12px;
+			line-height: 22px;
+			font-family: "微软雅黑";
+			color: #a5a3a2;
+
+		}
+		.vol .vol-content .vol-left .more{
+			width: 45px;
+			height: 20px;
+			float: right;
+		}
+		.vol .vol-content .vol-left .more span{
+			width: 12px;
+			height: 8px;
+			margin-right: 4px;
+			display: inline-block;
+			background: url(images/sprites.png)  -125px -182px no-repeat;
+		}
+		.vol .vol-content .vol-left .more a{
+			text-decoration: none;
+			font-size: 12px;
+			line-height: 20px;
+			font-family: "微软雅黑";
+			color: #a5a3a2;
+		}
+		.vol .vol-content .vol-right{
+			width: 676px;
+			height: 289px;
+			position: absolute;
+			top:0;
+			right: 0;
+		}
+		.vol-right form div{
+			width: 312px;
+			height: 42px;
+			background-color: #ececee;
+			float: left;
+			margin-right: 18px;
+			margin-bottom: 14px;
+			line-height: 42px;
+			padding-left: 18px;
+			box-sizing: border-box;
+		}
+		.vol-right form div.textarea{
+			width: 643px;
+			height: 120px;
+		}
+		.vol-right form div span,.vol-right form div {
+			color: #6c6868;
+			font-size: 14px;
+			font-family: "微软雅黑"；
+		}
+		.vol-right form div input,.vol-right form div textarea{
+			-webkit-appearance:none;
+			outline: none;
+			border:none;
+			background-color: transparent;
+			width: 200px;
+		}
+		.vol-right form div textarea{
+			width: 625px;
+			height: 77px;
+		}
+		.vol-right form button{
+			width: 643px;
+			height: 42px;
+			border: none;
+			background: #ececee; 
+			color: #323333;
+		}
+		footer{
+			width: 1280px;
+			height: 416px;
+			margin: 0 auto;
+		}
+		footer .f-top{
+			width: 100%;
+			height: 336px;
+			background-color: #32353e;
+			box-sizing: border-box;
+			padding: 58px 385px;
+		}
+		footer .f-bottom{
+			width: 100%;
+			height: 40px;
+			background-color: #2f3039;
+			box-sizing: border-box;
+			padding: 10px 57px;
+		}
+		.f-top .contact{
+			width: 468px;
+			margin-bottom: 27px;
+		}
+		.f-top .contact h1{
+			font-family: "微软雅黑";
+			font-size: 21px;
+			line-height: 49px;
+			color: #fff;
+			text-align:center;
+		}
+		.f-top .contact p{
+			font-family: "宋体";
+			font-size: 12px;
+			line-height: 18px;
+			color: #fff;
+			text-align: center;
+		}
+		.f-top .f-form{
+			width: 510px;
+			height: 42px;
+			background-color: #6f7278;
+		}
+		.f-top .f-form  input{
+			-webkit-appearance:none;
+			border:none;
+			outline: none;
+			background-color: #fff;
+			width: 430px;
+			height: 42px;
+			font-size: 16px;
+			box-sizing: border-box;
+			padding: 5px 10px;
+		}
+		.f-top .f-form span{
+			letter-spacing: 10px;
+			padding-left: 20px;
+			text-align: center;
+			width: 80px;
+			height: 42px;
+			background-color: #6f7278;
+			color:#fff;
+		}
+		.f-top .f-logo{
+			width: 220px;
+			height: 35px;
+			margin:0 auto;
+			margin-top: 30px;
+		}
+		.f-top .f-logo span{
+			display: inline-block;
+			width: 32px;
+			height: 30px;
+			margin-right: 25px;
+		}
+		.f-top .f-logo span#logo1{
+			background: url(images/sprites.png) -163px 0 no-repeat;
+		}
+		.f-top .f-logo span#logo2{
+			background: url(images/sprites.png) -243px 0 no-repeat;
+		}
+		.f-top .f-logo span#logo3{
+			background: url(images/sprites.png) -315px 0 no-repeat;
+		}
+		.f-top .f-logo span#logo4{
+			background: url(images/sprites.png) -373px 0 no-repeat;
+			margin-right: 0;
+		}
+		.f-bottom .fb-left{
+			float: left;
+			color: #fff;
+		}
+		.f-bottom .fb-right{
+			float: right;
+			
+		}
+		.f-bottom .fb-right a{
+			text-decoration: none;
+			color: #fff;
+		}
+	</style>
+
+</head>
+<body>
+<header>
+	<div class="top-left">
+		<a href="#" class="top-logo"></a>
+		<span>新世界</span>
+	</div>
+	<div class="top-right">
+		<ul>
+			<li><a href="#">首页</a></li>
+			<li><a href="#">最新活动</a></li>
+			<li><a href="#">项目介绍</a></li>
+			<li><a href="#">爱心社区</a></li>
+			<li><a href="#">关于我们</a></li>
+		</ul>
+		<div class="login">
+		<span class="login-img"></span>
+		<a href="#">登录</a>
+		</div>
+	</div>
+</header>
+<main>
+	<div class="banner">
+		<img src="images/banner.jpg" alt="">
+		<a href="#">开始体验</a>
+		<ul>
+			<li>
+			<span class="bac-logo1"></span>
+			<p class="description  no-border">打造全新世界观，让你更爱你的生活</p>
+			</li>
+			<li>
+			<span class="bac-logo2"></span>
+			<p class="description">丰富多彩的公益活动，发挥新世界的主人公意识</p>
+			</li>
+			<li>
+			<span class="bac-logo3"></span>
+			<p class="description">时尚的新理念，超前体验未知的生活</p>
+			</li>
+			<li>
+			<span class="bac-logo4"></span>
+			<p class="description">完善的培养机制，培养你全新的世界观</p>
+			</li>
+		</ul>
+	</div>
+	<div class="slogan">
+		<div class="slogan-logo"></div>
+		<p>关于新世界，你不知道的还有什么？</p>
+	</div>
+	<div class="find-form">
+		<h1>查找新世界城市活动信息</h1>
+		<div class="line"></div>
+		<p>每个城市的有不同的活动信息，请自主查询您所需要了解的城市</p>
+		<div class="form-content">
+		<select name="country" id="country">
+				<option value="1">中国</option>
+				<option value="2">韩国</option>
+				<option value="3">日本</option>
+				<option value="4">美国</option>
+		</select>
+		<select name="province" id="province">
+				<option value="1">湖南省</option>
+				<option value="2">湖北省</option>
+				<option value="3">浙江省</option>
+				<option value="4">江苏省</option>
+		</select>
+		<select name="city" id="city">
+				<option value="1">长沙</option>
+				<option value="2">衡阳</option>
+				<option value="3">岳阳</option>
+				<option value="4">怀化</option>
+		</select>
+		<a href="#">搜索</a>	
+		</div>
+	</div>
+	<div class="activity">
+		<div class="act-display">
+		<a href="#"><img src="images/pic1.png" alt="北京活动"></a>
+		<h1>北京活动</h1>
+		<p>新社区联盟</p>
+		</div>
+		<div class="act-display">
+		<h1 class="mian-act">上海活动</h1>	
+		<p>夜上海景观探索</p>
+		<a href="#"><img src="images/pic2.png" alt="上海活动"></a>
+		</div>
+		<div class="act-display">
+		<a href="#"><img src="images/pic3.png" alt="深圳活动"></a>
+		<h1>深圳活动</h1>
+		<p>全新海岸线观点站</p>
+		</div>
+		<div class="act-display no-margin">
+		<a href="#"><img src="images/pic4.png" alt="香港活动"></a>
+		<h1>香港活动</h1>
+		<p>奢侈消费大作战</p>
+		</div>
+	</div>
+	<div class="display">
+		<div class="display-top">
+			<div class="distop-left">
+			<img src="images/pic5.png" alt="">
+			</div>
+			<div class="distop-right">
+			<h1>新世界<span class="c-grey">/</span><span class="c-red">01</span></h1>
+			<p>新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界新世界</p>
+			<a href="#">更多详情</a>
+			<div class="loop">
+			<span class="chosen"></span>
+			<span></span>
+			<span></span>
+			</div>
+			</div>
+		</div>
+		<div class="bottom-leftf bl">
+			<h2>新时代<br>关于爱生活的我们</h2>
+		
+			<div></div>
+			<a href="#">查看更多</a>
+		</div>
+		<div class="bottom-lefts bl">
+			<h2>新时代<br>关于爱生活的我们</h2>
+			
+			<div></div>
+			<a href="#">查看更多</a>			
+		</div>
+		<div class="bottom-right">
+			<img src="images/pic6.png" alt="">
+		</div>
+	</div>
+	<div class="vol">
+		<div class="vol-slogan">
+			<h1>成为我们的志愿者</h1>
+			<div></div>
+			<p>新世界的大家庭需要每一个爱生活的人的加入，如果你够年轻，有梦想，有激情那就不要犹豫，快来加入我们，成为改变所有人生活的人 </p>
+		</div>
+		<div class="vol-content">
+			<div class="vol-left">
+				<div>
+				<h2>新界志愿者协议</h2>
+				<p>加入新世界志愿者的人员必须遵守中华人民共共和国的相关法律法规，并且本着平等资源的原则 ......</p>
+				<div class="more"><span></span><a href="#">more</a></div>
+				</div>
+				<div>
+				<h2>新界志愿者协议</h2>
+				<p>加入新世界志愿者的人员必须遵守中华人民共共和国的相关法律法规，并且本着平等资源的原则 ......</p>
+				<div class="more"><span></span><a href="#">more</a></div>
+				</div>
+				<div>
+				<h2>更多条款</h2>
+				<div class="more"><span></span><a href="#">more</a></div>
+				</div>
+			</div>
+			<div class="vol-right">
+				<form action="post">
+					<div>
+					<span>姓名: </span><input type="text">
+					</div>
+					<div>
+					<span>年龄: </span>
+					<input type="text">
+					</div>
+					<div>
+					<span>联系方式: </span>
+					<input type="text">
+					</div>
+					<div>
+					<span>地址: </span>
+					<input type="text">
+					</div>
+					<div class="textarea">
+					<p>请简单描述您梦想的生活: </p>
+					<textarea name="" id="" cols="30" rows="10"></textarea>
+					</div>
+					<button>提交申请</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</main>
+<footer>
+	<div class="f-top">
+		<div class="contact">
+		<h1>联系我们</h1>
+		<p>为了更好的获取我们最新的产品资讯，您可以留下您的电子邮箱快速订阅我们的产品资讯也可以通过以下任何方式关注我们动态</p>
+		</div>
+		<div class="f-form">
+		<input type="text"><span>提交</span>
+		</div>
+		<div class="f-logo">
+			<span id="logo1"></span>
+			<span id="logo2"></span>
+			<span id="logo3"></span>
+			<span id="logo4"></span>
+		</div>
+	</div>
+	<div class="f-bottom">
+		<div class="fb-left">@2016新世界</div>
+		<div class="fb-right"><a href="#">Back to top</a></div>
+	</div>
+</footer>
+</body>
+</html>
