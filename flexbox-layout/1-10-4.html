@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- 移动设备 -->
+	<meta charset="utf-8">
+	<title>圣杯布局</title>
+	<style>
+		.wrap{
+			display: flex;
+			min-height: 100vh;/*vh就是当前屏幕可见高度的1%*/
+			flex-direction: column;
+			text-align: center;
+		}
+		header,footer{
+			height: 5em;
+			background: grey;
+		}
+		.content{
+			display: flex;
+			flex-grow: 1;/*剩余部分都是中间行*/
+			background: red;
+		}
+		.content main{/*中间内容栏自适应宽度*/
+			flex-grow: 1;
+			background: pink;
+		}
+		.content nav,.content aside{
+			flex: 0 0 14em;/*导航栏和侧边栏固定宽度*/
+			background: blue;
+		}
+		.content nav{/*将导航栏移到最左边*/
+			order:-1;
+		}
+		/*屏幕自适应处理*/
+		@media screen and (max-width: 768px) {
+			.content{
+				display: flex;
+				flex-direction: column;
+				flex-grow: 1;
+			}
+			.content nav,.content aside,.content main{
+				flex:auto;
+			}
+		}
+	</style>
+</head>
+<body class="wrap">
+<header>header</header>
+<div class="content">
+	<main>main</main>
+	<nav>nav</nav>
+	<aside>aside</aside>
+</div>
+<footer>footer</footer>
+</body>
+</html>
