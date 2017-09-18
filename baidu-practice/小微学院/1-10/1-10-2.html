@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>画骰子</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		.wrap  .cube div{
+			width: 200px;
+			height: 200px;
+			border:2px solid grey;
+			border-radius: 10px;
+			box-shadow: 2px 2px  2px grey;
+			display: flex;	
+			padding: 10px;
+			background: white;
+		}
+		span{
+			width: 30px;
+			height: 30px;
+			border-radius: 15px;
+			background: black;
+		}
+		.one{
+			justify-content: center;
+			align-items: center;
+		}
+		.one span{
+			width: 40px;
+			height: 40px;
+			border-radius: 20px;
+			background: red;
+		}
+		.two{
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-around;
+		}
+		
+		.three{
+			justify-content: space-around;
+		}
+		.three span:nth-child(2){
+			align-self: center;
+		}
+		.three span:nth-child(3){
+			align-self: flex-end;
+		}
+		.four{
+			flex-direction: column;
+			justify-content: space-around;
+		}
+		.four p{
+			display: flex;
+			flex-basis:100% 50%;
+			justify-content: space-around;
+		}
+		.five,.six{
+			flex-direction: column;
+			justify-content: space-around;
+		}
+		.five p,.six p{
+			display: flex;
+			flex-basis: 100% 33.3%;
+			justify-content: space-around;
+		}
+		/*.wrap{
+			perspective: 1000px;
+			perspective-origin: 50% 100px;
+		}
+		.cube {
+    		position: relative;
+    		width: 200px;
+    		transform-style: preserve-3d;
+    		left: 500px;
+    		top:300px;
+		}
+		.cube div {
+    		position: absolute;
+		}
+		.one{
+		    transform: translateZ(-100px) rotateY(180deg);
+		}
+		.two {
+		    transform: rotateY(-270deg) translateX(100px);
+		    transform-origin: top right;
+		}
+		.three {
+		    transform: rotateY(270deg) translateX(-100px);
+		    transform-origin: center left;
+		}
+		.four {
+		    transform: rotateX(-90deg) translateY(-100px);
+		    transform-origin: top center;
+		}
+		.five {
+		    transform: rotateX(90deg) translateY(100px);
+		    transform-origin: bottom center;
+		}
+		.six {
+		    transform: translateZ(100px);
+		}
+		@keyframes spin {
+    		from { transform: rotateY(0); }
+    		to { transform: rotateY(360deg); }
+		}
+
+	.cube {
+   		animation: spin 5s infinite linear;
+	}*/
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="cube">
+		<div class="one">
+			<span></span>
+		</div>
+		<div class="two">
+			<span></span><span></span>
+		</div>
+		<div class="three">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div class="four">
+			<p>
+				<span></span>
+				<span></span>
+			</p>
+			<p>
+				<span></span>
+				<span></span>
+			</p>
+			
+		</div>
+		<div class="five">
+			<p>
+			<span></span>
+			<span></span>
+			</p>
+			<p>
+			<span></span>
+			</p>
+			<p>
+			<span></span>
+			<span></span>
+			</p>
+		</div>
+		<div class="six">
+			<p>
+				<span></span>
+				<span></span>
+			</p>
+			<p>
+				<span></span>
+				<span></span>
+			</p>
+			<p>
+				<span></span>
+				<span></span>
+			</p>	
+		</div>
+	</div>
+</div>
+</body>
+</html>

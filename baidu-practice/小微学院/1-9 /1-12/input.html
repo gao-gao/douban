@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>动画</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		ul,li{
+			list-style: none;
+		}
+		.wrap{
+			width: 300px;
+			height: 200px;
+			overflow: hidden;
+			background-color: yellow;
+			position: relative;
+		}
+		.slide1{
+			background-color: yellow;
+		}
+		.slide2{
+			background-color: grey;
+		}
+		.slide3{
+			background-color: pink;
+		}
+		ul{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			list-style: none;
+			z-index: 100;
+		}
+		ul li{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: -100%;
+			top:0;
+			animation:0.5s slideout;
+		}
+		
+		/*
+		URL带有后面跟有锚名称#，指向文档内某个具体的元素。这个被链接的元素就是目标元素(target element)，选取当前活动页的目标元素*/
+		ul li:target{
+			left:0%;
+			animation: 0.5s slidein;
+
+		}
+		div.nav{
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			z-index: 100;
+		}
+		div.nav a{
+			display: block;
+			width: 30px;
+			height: 30px;
+			margin-left: 10px;
+			float: left;
+			background: grey;
+			text-decoration: none;
+			text-align: center;
+			line-height: 30px;		
+		}
+		@keyframes slideout{
+			0%{
+				left:0%;
+			}
+			100%{
+				left: -100%;
+			}
+		}
+		@keyframes slidein{
+			0%{
+				left: 100%;
+			}
+			100%{
+				left: 0;
+			}
+		}
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<ul>
+	<li class="slide1" id="slide1"></li>
+	<li class="slide2" id="slide2"></li>
+	<li class="slide3" id="slide3"></li>
+	</ul>
+<div class="nav">
+	<a href="#slide1">1</a>
+	<a href="#slide2">2</a>
+	<a href="#slide3">3</a>
+</div>
+</div>
+</body>
+</html>
+<!-- bug：点击之后刷新，下面的索引栏也会滑动 -->

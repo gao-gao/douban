@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>border-img</title>
+	<style>
+		div{
+			width: 300px;
+			height: 400px;
+			margin:0 auto;
+			border:30px solid transparent;/*谷歌浏览器加上该属性*/
+			/*-webkit-border-image-source:url(images/border.png);
+			-webkit-border-image-slice:27 fill;
+			-webkit-border-image-repeat:stretch;*/
+			/*border-image-source:url(images/border.png);
+			border-image-slice:27 fill;
+			border-image-repeat:stretch;*/
+			/*border:1px solid red;*/
+			border-image: url(images/border.png) 27 fill round stretch;
+			border-image-outset: 10px;
+		}
+	</style>
+</head>
+<body>
+<div>1213234</div>
+</body>
+</html>

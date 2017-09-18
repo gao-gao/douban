@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>复杂页面</title>
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+<!-- 问题1：头部始终保持浏览器的宽度100%，那么随着了浏览器的伸缩，定位始终设置为定值 -->
+<header>
+<div class="wrap">
+	<div class="logo"><span></span></div>
+	<div class="search-logo"></div>
+	<input type="text" class="search">
+	<div class="login"><span class="bac"></span><span class="text">登录</span></div>
+</div>
+</header>
+<main>
+	<nav>
+	<div class="user">
+		<img src="#" alt="">
+		<h1>ABC123</h1>
+		<div class="user-infor">
+			<dl class="left">
+				<dt>110</dt>
+				<dd>收藏</dd>
+			</dl>
+			<dl class="right">
+				<dt>313</dt>
+				<dd>粉丝</dd>
+			</dl>
+		</div>
+	</div>
+	<ul class="list-1">
+		<li class="li-1 chosen">
+		<span class="logo-1"></span>个人报表
+		<ul class="list-2">
+			<li>
+			<span class="logo-9"></span><span class="logo-2"></span>文件一
+			<ul class="list-3">
+				<li><span class="logo-4"></span>文档一</li>
+				<li><span class="logo-5"></span>文档二</li>
+			</ul>
+			</li>
+			<li><span class="logo-10"></span><span class="logo-3"></span>文件二</li>
+			<li><span class="logo-9"></span><span class="logo-2"></span>文件三</li>
+		</ul>
+		</li>
+		<li><span class="logo-6"></span>个人收藏</li>
+		<li><span class="logo-7"></span>我的分享</li>
+		<li><span class="logo-6"></span>图库</li>
+		<li><span class="logo-6"></span>成长记录</li>
+		<li><span class="logo-8"></span>账户信息</li>
+	</ul>
+	</nav>
+	<article>
+		<div class="nav">
+			<a href="#" class="nav-f">c站</a><span>/</span>
+			<a href="#">个人报表</a><span>/</span>
+			<a href="#">文件一</a><span>/</span>
+			<a href="#" class="current">文档一</a>
+		</div>
+		<div class="find">
+			<form action="">
+
+			<div class="opt-1">
+				<h3>查询项</h3>
+				<select name="" id="">
+					<option value="">第一项</option>
+				</select>
+			</div>
+
+			<div class="group-mid">
+				<div class="opt-2">
+					<h3>买方</h3>
+					<select name="" id="">
+						<option value="">小A</option>
+					</select>
+				</div>
+				<div class="opt-3">
+					<h3>卖方</h3>
+					<select name="" id="">
+						<option value="">小C</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="group-right">
+				<div class="opt-4">
+					<h3>日期</h3>
+					<input type="text" value="2018-09-29">
+				</div>
+				
+				<div class="opt-5">
+					<h3>总耗时</h3>
+					<select name="" id="">
+						<option value="">8天</option>
+					</select>
+				</div>
+	
+				<div class="opt-6">
+					<h3>人数</h3>
+					<select name="" id="">
+						<option value="">10人</option>
+					</select>
+				</div>
+	
+				<div class="opt-7">
+					<h3>成交项</h3>
+					<select name="" id="">
+						<option value="">10项</option>
+					</select>
+				</div>
+			</div>
+			<button>搜索</button>
+			</form>
+		</div>
+		<div class="history">
+			<div class="his-left"><span></span></div>
+			<div class="price">
+				<p class="p-top">10:00 am</p>
+				<p class="p-end"><span>￥</span>1200</p>
+			</div>
+			<div class="price">
+				<p class="p-top">10:00 am</p>
+				<p class="p-end"><span>￥</span>1200</p>
+			</div>
+			<div class="price">
+				<p class="p-top">10:00 am</p>
+				<p class="p-end"><span>￥</span>1200</p>
+			</div>
+			<div class="price">
+				<p class="p-top">10:00 am</p>
+				<p class="p-end"><span>￥</span>1200</p>
+			</div>
+			<div class="price">
+				<p class="p-top">10:00 am</p>
+				<p class="p-end"><span>￥</span>1200</p>
+			</div>
+			<div class="price">
+				<p class="p-top">10:00 pm</p>
+				<p class="p-end"><span>￥</span>1200</p>
+			</div>
+			<div class="his-right"><span></span></div>
+			<div class="his-logo">
+				<span></span>历史查询
+			</div>
+		</div>
+		<div class="result">
+			<h3>2016年4月份统计</h3>
+			<div class="green">
+				<p class="g-top">133311</p>
+				<p class="g-end">成交量</p>
+				<span></span>
+			</div>
+			<div class="blue">
+				<p class="g-top">133311</p>
+				<p class="g-end">成交量</p>
+				<span></span>
+			</div>
+			<div class="red">
+				<p class="g-top">133311</p>
+				<p class="g-end">成交量</p>
+				<span></span>
+			</div>
+			<div class="yellow">
+				<p class="g-top">133311</p>
+				<p class="g-end">成交量</p>
+				<span></span>
+			</div>
+		</div>
+		<div class="project">
+			<div class="pro-content formal">
+				<h3>第一组项目</h3>
+					<ul>
+						<li class="hovered">项目一</li>
+						<li>项目一</li>
+						<li>项目一</li>
+						<li>项目一</li>
+						<li>项目一</li>
+					</ul>
+				<div class="pro-wrap">
+					<table>
+						<tr>
+							<td class="bac-grey">购买材料一</td>
+							<td>购买材料一</td>
+							<td>购买材料一</td>
+							<td>购买材料一</td>
+						</tr>
+						<tr>
+							<td>购买材料二</td>
+							<td>购买材料二</td>
+							<td>购买材料二</td>
+							<td>购买材料二</td>
+						</tr>
+						<tr>
+							<td>购买材料三</td>
+							<td>购买材料三</td>
+							<td>购买材料三</td>
+							<td>购买材料三</td>
+						</tr>
+						<tr>
+							<td>购买材料四</td>
+							<td>购买材料四</td>
+							<td>购买材料四</td>
+							<td>购买材料四</td>
+						</tr>
+						<tr>
+							<td>购买材料五</td>
+							<td>购买材料五</td>
+							<td>购买材料五</td>
+							<td>购买材料五</td>
+						</tr>
+						<tr>
+							<td>购买材料六</td>
+							<td>购买材料六</td>
+							<td>购买材料六</td>
+							<td>购买材料六</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="pro-form formal">
+				<h3>第一组项目</h3>
+				<h4>标题</h4>
+				<p>项目报表三</p>
+				<h4>价格</h4>
+				<p>158</p>
+				<h4>负责人</h4>
+				<p>小A</p>
+				<h4>详细描述</h4>
+				<p>该项目的负责人是......</p>
+				<form action="">
+				<input type="radio">遵守保密协议
+				<button>搜索</button>
+				</form>
+			</div>
+			<div class="pro-date formal">
+				<h3>日历</h3>
+			</div>
+			<div class="pro-list formal">
+				<h3>汽车行业品牌表</h3>
+			</div>
+		</div>
+	</article>
+</main>
+</body>
+</html>

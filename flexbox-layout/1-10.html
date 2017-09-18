@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<title>flex布局</title>
+	<style>
+		*{
+			padding: 0;
+			margin:0;
+		}
+		.container{
+			display: -webkit-flex;
+			padding:50px;
+		}
+		.container div{
+			width: 150px;
+			box-sizing: border-box;
+			border:1px solid #FF0000;
+			margin: 20px;
+		}
+		div:nth-child(1){
+			height: 120px;
+		}
+		div:nth-child(2){
+			height: 100px;
+		}
+		div:nth-child(3){
+			height: 40px;
+		}
+		div:nth-child(4){
+			height: 200px;
+			border:1px solid #00f;
+		}
+		@media screen and (min-width: 640px) {
+			.container{
+				align-items: center;
+				justify-content: space-between;
+			}
+			
+		}
+		@media screen and (max-width: 640px) {
+			.container{
+				flex-wrap: wrap;
+			}
+			.container div{
+				order:2;
+			}
+			div:nth-child(4){
+				order:1;
+			}
+		}
+		
+	</style>
+</head>
+<body>
+<div class="container">
+	<div>第一个</div>
+	<div>第二个</div>
+	<div>第三个</div>
+	<div>第四个</div>
+</div>
+</body>
+</html>

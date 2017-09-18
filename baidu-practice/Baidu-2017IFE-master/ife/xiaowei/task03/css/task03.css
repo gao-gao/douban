@@ -1,0 +1,103 @@
+
+/* 主体 */
+
+body {
+	margin: 20px;
+}
+
+.container {
+	background-color: #eee;
+	border-color: #999;
+	padding: 20px;
+	border: 1px solid #000;
+}
+
+/* 三栏浮动 */
+
+.child {
+	float: left;
+}
+
+/* 清除浮动 */
+
+.clear-fix {
+	overflow: auto;  /* CSS里面解释的是超出高度或宽度的话会出现滚动条 */
+	height: 1%;  /* 1%是为了实现非0,这里不加好像也无影响*/
+}
+/* 
+ * 清除一 : 添加空标签来来clear:both;但是这样影响布局
+ * 
+ * 清除二 : 用overflow  1/ overflow:hidden 使用hidden直接触发hasLayout
+ * 					 2/  overflow:auto; height:1%; 用height触发hasLayout
+ * 					 3/ overflow:auto; zoom:1; 用zoom触发hasLayout
+ * 
+ * 清除三 : 用after伪元素	父级标签:after{content:'';
+ * 									display: table;
+ * 									clear:both;}
+ * 
+ * 一违背结构-样式-行为分离, 二三应是可选的方案
+ * */
+
+/* 首行缩进 */
+.center p:nth-child(1){
+	text-indent: 40px;
+}
+
+/* 自适应栏 */
+
+.center {
+	width: 100%;
+}
+
+ #center-inner {
+	margin: 0px 140px 0 220px;
+	border: 1px solid #000;
+	background-color: white;
+	height: auto;
+}
+
+p{
+	
+	padding: 20px;
+}
+        
+/* 左栏 */
+
+.left {
+	width: 158px;
+	padding: 20px;
+	height: 80px;
+	background-color: white;
+	margin-left: -100%;
+	border: 1px solid #000;
+}
+
+
+.left img {
+	width: 80px;
+	height: 80px;
+	border: 1px solid #000;
+}
+
+.left span {
+	vertical-align: top;
+	/* margin-left: 0px; */
+}
+
+/* 右栏 */
+
+.right {
+	text-align: center;
+	width: 118px;
+	height: 330px;
+	background-color: white;
+	margin-left: -120px;
+	border: 1px solid #000;
+}
+
+.right img{
+	margin-top: 19px;
+	width: 80px;
+	height: 80px;
+	border: 1px solid #000;
+}

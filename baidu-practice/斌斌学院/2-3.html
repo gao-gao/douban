@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>绑定事件并排序</title>
+	<style>
+		ul,li{
+			list-style: none;
+		}
+
+	</style>
+</head>
+<body>
+	<h3>调查结果</h3>
+	<ul id="source">
+	    <li>北京空气质量：<b>90</b></li>
+	    <li>上海空气质量：<b>70</b></li>
+	    <li>天津空气质量：<b>80</b></li>
+	    <li>广州空气质量：<b>50</b></li>
+	    <li>深圳空气质量：<b>40</b></li>
+	    <li>福州空气质量：<b>32</b></li>
+	    <li>成都空气质量：<b>90</b></li>
+	</ul>
+	<ul id="resort"></ul>
+	<button id="sort-btn">排序</button>
+	<script>
+		
+		// 获取数据
+		function getData(){
+			var list = document.getElementsByTagName("li");
+			var blist = document.getElementsByTagName("b");
+			var cityList = new Array();
+			var numList = new Array();
+			var data =new Array();
+			for(var i = 0; i < list.length; i++){
+				cityList.push(list[i].innerHTML.substring(0,2))
+				numList.push(blist[i].innerHTML)
+			}
+			for(var i = 0; i < cityList.length; i++){
+				data[i]=new Array();
+				data[i].push(cityList[i]);
+				data[i].push(numList[i]);
+			}
+			return data;
+		}
+		var data = getData();
+		console.log(data);
+		// 排序
+		function sortAqiData(data){
+			var len = data.length,
+				right = len-1,
+				left = 0;
+			var replace;
+				
+			while(left<right){
+
+				var posRight=left;
+				for(var i = left; i < right ; i++){
+					if(data[i][1]>data[i+1][1]){
+						posRight=i;
+						replace=data[i];
+						data[i]=data[i+1];
+						data[i+1]=replace;
+					}
+				}
+				right=posRight;
+
+				var posLeft=right;
+				for(var j = right; j > left; j--){
+					if(data[j][1] < data[j-1][1]){
+						posLeft=j;
+						replace=data[j];
+						data[j]=data[j-1];
+						data[j-1]=replace;
+					}
+				}
+				left=posLeft;
+			}
+			return data;
+		}
+		function render(data){
+			var resort = document.getElementById("resort");
+			for(var i = 0; i < data.length; i++){
+				var element = document.createElement("li");
+				element.innerHTML = "第"+(i+1)+"名："+data[i][0]+"<b>"+data[i][1]+"</b>"
+				resort.appendChild(element);
+			}
+		}
+		function btnHandle() {
+			var AqiData = getData();
+			AqiData = sortAqiData(AqiData);
+			render(AqiData);
+			var head = document.createElement("h3");
+			var resort = document.getElementById("resort");
+			head.innerHTML="排序结果";
+			resort.parentNode.insertBefore(head,resort);
+
+		}
+		function init(){
+			var btn = document.getElementById("sort-btn");
+			btn.onclick = btnHandle;
+		}
+		init();
+
+	</script>
+</body>
+</html>

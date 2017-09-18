@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>队列实践</title>
+	<style>
+		*{
+			margin:0;
+			padding: 0;
+		}
+		body{
+			padding: 50px;
+		}
+		span{
+			display: inline-block;
+			width: 40px;
+			height: 40px;
+			background-color: red;
+			text-align-last: center;;
+			line-height: 40px;
+			margin:10px;
+		}
+		button{
+			padding: 5px;
+		}
+		input{
+			width: 200px;
+			height: 30px;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="content">
+	<button id="left-in">左侧入</button>
+	<button id="right-in">右侧入</button>
+	<button id="left-out">左侧出</button>
+	<button id="right-out">右侧出</button>
+	<div id="wrap">
+		<span>10</span>
+		<span>9</span>
+		<span>18</span>
+		<span>89</span>
+	</div>
+	<script>
+		var btn1 = document.getElementById("left-in"),
+			btn2 = document.getElementById("right-in"),
+			btn3 = document.getElementById("left-out"),
+			btn4 = document.getElementById("right-out");
+			btn1.onclick = leftIn;
+			btn2.onclick = rightIn;
+			btn3.onclick = leftOut;
+			btn4.onclick = rightOut;
+		function leftIn(){
+			var	pnode = document.getElementById("wrap");
+			var cnode = document.getElementsByTagName("span");
+			var content = document.getElementById("content");
+			var newContent = content.value;
+			if(isNaN(newContent)||newContent==""){
+				alert("请输入数字");
+
+			}else{
+				var element = document.createElement("span");
+				element.innerHTML = newContent;
+				pnode.insertBefore(element,cnode[0]);
+			}
+			
+		}
+		function rightIn(){
+			var	pnode = document.getElementById("wrap");
+			var cnode = document.getElementsByTagName("span");
+			var content = document.getElementById("content");
+			var newContent = content.value;
+			if(isNaN(newContent)||newContent==""){
+				alert("请输入数字");
+			}else{
+				var element = document.createElement("span");
+				element.innerHTML = newContent;
+				pnode.appendChild(element);
+			}			
+			
+		}
+		function leftOut(){
+			var	pnode = document.getElementById("wrap");
+			var cnode = document.getElementsByTagName("span");
+			alert(cnode[0].innerHTML);
+			pnode.removeChild(cnode[0]);
+		}
+		function rightOut(){
+			var	pnode = document.getElementById("wrap");
+			var cnode = document.getElementsByTagName("span");
+			alert(cnode[cnode.length-1].innerHTML);
+			pnode.removeChild(cnode[cnode.length-1]);
+		}
+	</script>
+</body>
+</html>

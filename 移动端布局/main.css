@@ -1,0 +1,156 @@
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		a{
+			text-decoration: none;
+		}
+		ul,ol,li{
+			list-style: none;
+		}
+		header{
+			width: 100%;
+			height: 50px;
+			background: pink;
+			position: relative;
+		}
+		header a{
+			position: absolute;
+			left: 10%;
+			top: 0;
+			color: #c1bcbf;
+			letter-spacing: 2px;	
+			font-size: 14px;
+			line-height: 50px;
+		}
+		header h1{
+			text-align: center;
+			font-size: 18px;
+			color: #575255;
+			line-height: 50px;
+		}
+		.nav{
+			display: flex;
+			justify-content: space-around;
+			height: 40px;
+		}
+		.nav li{
+			flex-grow:1;
+			text-align: center;
+		}
+		.nav li:hover{
+			border-bottom: 3px solid pink;
+		}
+		.nav li a{
+			color: #c1bcbf;
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 40px;
+		}
+		.placeholder img{
+			width: 100%;
+		}
+		.label{
+			display: flex;
+			justify-content: space-around;
+			margin: 20px;
+			border-bottom: 1px solid #d0d0d0;
+		}
+		.label p{
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		.label img{
+			width: 100%;
+		}
+		.divide{
+			display: flex;
+			justify-content: space-around;
+			text-align: center;
+			border-bottom: 30px solid #d0d0d0;
+			padding: 20px;
+		}
+		.divide div{
+			width: 30%;
+		}
+		.divide div img{
+			width:100%;
+		}
+		.divide div h3{
+			color: #5b595a;
+			padding: 6px;
+		}
+		.divide div h4{
+			color: #8a8889;
+			padding: 3px;
+		}
+		.module{
+			overflow: hidden;
+			padding: 20px;
+			border-bottom: 30px solid #cecbcd;
+		}
+		.module h2{
+			padding-left: 50px;
+			height: 40px;
+			line-height: 40px;
+			font-size: 16px;
+			color: #767375; 
+			border-bottom: 2px solid #c6c4c5;
+			margin-bottom: 20px;
+		}
+		.module img{
+			width:25%;
+			height: 200px;
+			float: left;
+		}
+		.module div{
+			display: flex;
+			justify-content: space-around;
+			padding: 10px;
+			height: 100px;
+			padding-top: 0;
+		}
+		.module div.mol-1{
+			margin-bottom: 10px;
+		}
+		.module div p{
+			flex-grow: 1;
+			margin-right: 20px;
+			text-align:center;
+			line-height: 80px;
+			background: #cecbcd;
+		}
+		.article>div{
+			padding: 20px;
+		}
+		.article div h3{
+			color: #a7a6a7;
+			font-size: 22px;
+			margin-left: 20px;
+			line-height: 40px;
+		}
+		.article div p{
+			color: #cdcacc;
+			font-size: 16px;
+		}
+		.article .minor-article img{
+			float:left;
+			width: 200px;
+			height: 180px;
+			margin-right: 20px
+		}
+		.article .minor-article{
+			overflow: hidden;
+			border-bottom: 2px solid #c6c4c5;
+		}
+		.article .main-article div{
+			display: flex;
+			justify-content: space-between;
+		}
+		.article .main-article div img{
+			width: 30%;
+		}
+		.article .main-article p{
+			clear: both;
+		}

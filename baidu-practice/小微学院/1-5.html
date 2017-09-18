@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>页面布局</title>
+	<style type="text/css">
+		header,footer{
+			height: 40px; 
+			position: relative;
+			left: 0;
+			right: 0;
+			background: grey;
+		}
+		header{
+			top:0;
+		}
+		footer{
+			bottom: 0;
+		}
+		main{
+			margin:10px;
+			overflow: hidden;
+			position: relative;
+		}
+		.left{
+			margin-right:400px;
+		}
+		.right{
+			width: 400px;
+			height: 500px;
+			background: pink;
+			position: absolute;
+			top:0;
+			right: 0;
+		}
+		.left div img{
+			width: 200px;
+			height: 200px;
+		}
+		.divleft{
+			height: 300px;
+			background: yellow;
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+<header></header>
+<main>
+	<div class="left">
+		<div>
+			<img src="wechat.jpg" alt="">
+			<img src="wechat.jpg" alt="">
+			<img src="wechat.jpg" alt="">
+			<img src="wechat.jpg" alt="">
+			<img src="wechat.jpg" alt="">
+			<img src="wechat.jpg" alt="">
+			<img src="wechat.jpg" alt="">
+			<img src="wechat.jpg" alt="">
+			<img src="wechat.jpg" alt="">
+			<img src="wechat.jpg" alt="">
+		</div>
+		<div class="divleft"></div>
+		<div class="divleft"></div>
+		<div class="divleft"></div>
+	</div>
+	<div class="right"></div>
+</main>
+<footer></footer>
+</body>
+</html>

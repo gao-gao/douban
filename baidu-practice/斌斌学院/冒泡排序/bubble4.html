@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script>
+function inOrder(arr){
+	var len = arr.length;
+	var i = len-1;
+	while(i > 0){
+		var pos = 0;
+		for(var j = 0; j < i; j++){
+			if(arr[j]>arr[j+1]){
+				pos = j;
+				var replace = arr[j];
+				arr[j]=arr[j+1];
+				arr[j+1]=replace;
+			}
+		}
+		i = pos;
+		console.log(pos);
+	}
+	return arr;
+}
+console.log(inOrder([28,39,0,98,37]));
+</script>
+</body>
+</html>

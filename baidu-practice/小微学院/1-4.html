@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>垂直居中</title>
+	<style>
+
+		.main{
+			width: 400px;
+			height: 200px;
+			background-color: #ccc;
+			position: absolute;
+			top:50%;
+			left:50%;
+			margin-left: -200px;
+			margin-top: -100px;
+			overflow: hidden;
+		}
+		#div1,#div2{
+			width: 100px;
+			height: 100px;
+			border-radius: 50px;
+			background-color: #fc0;
+			position: absolute;
+		}
+		#div1{
+			top:-50px;
+			left: -50px;
+		}
+		#div2{
+			right: -50px;
+			bottom: -50px;
+		}
+		p{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+<p>灰色元素水平垂直居中，有两个四分之一圆位于其左上角和右下角</p>
+<div class="main">
+<div id="div1"></div>
+<div id="div2"></div>	
+</div>
+</body>
+</html>

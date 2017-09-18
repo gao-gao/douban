@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script>
+// 原理：通过比较相邻的数字的大小，并将其依次按照大小排序来实现数组的排序
+// 添加pos变量记录数组中最后一次比较大小后调换位置的索引（说明该索引之后的数字都已排好序，因为没有产生调换），继而减少遍历次数
+	function bubbleSort2(arr){
+	    console.time('改进后冒泡排序耗时');
+	    var i=arr.length-1;  //初始时,最后位置保持不变
+	    while(i>0){
+	        var pos=0;//每趟开始时,无记录交换
+	        for(var j=0;j<i;j++)
+	            if(arr[j]>arr[j+1]){
+	                pos=j;//记录交换的位置
+	                var tmp=arr[j];arr[j]=arr[j+1];arr[j+1]=tmp;
+	            }
+	        i=pos;//为下一趟排序作准备
+	        console.log(i);
+	        console.log(arr);
+	    }
+	    console.timeEnd('改进后冒泡排序耗时');
+	    return arr;
+	}
+	var arr=[3,44,38,5,47];
+	console.log(bubbleSort2(arr));
+</script>
+</body>
+</html>

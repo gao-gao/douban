@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>队列实践--添加判断</title>
+	<style>
+		*{
+			margin:0;
+			padding: 0;
+		}
+		body{
+			padding: 50px;
+		}
+		span{
+			display: inline-block;
+			vertical-align: bottom;
+			width: 40px;
+			height: 40px;
+			background-color: red;
+			text-align-last: center;;
+			margin:10px;
+			color: red;
+			overflow: hidden;
+		}
+		button{
+			padding: 5px;
+		}
+		input{
+			width: 200px;
+			height: 30px;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="content">
+	<button id="left-in">左侧入</button>
+	<button id="right-in">右侧入</button>
+	<button id="left-out">左侧出</button>
+	<button id="right-out">右侧出</button>
+	<div id="wrap">
+		<span>10</span>
+		<span>9</span>
+		<span>18</span>
+		<span>89</span>
+	</div>
+	<script>
+		var btn1 = document.getElementById("left-in"),
+			btn2 = document.getElementById("right-in"),
+			btn3 = document.getElementById("left-out"),
+			btn4 = document.getElementById("right-out");
+			btn1.onclick = clickAction;
+			btn2.onclick = clickAction;
+			btn3.onclick = clickAction;
+			btn4.onclick = clickAction;
+
+		var	pnode = document.getElementById("wrap"),
+			cnode = document.getElementsByTagName("span");
+
+		function isLegal(newContent){
+			if(cnode.length < 60){
+				if(isNaN(newContent)||newContent==""){
+					alert("请输入数字");
+					return null;
+				}else if(newContent>10&&newContent<100){
+					var element = document.createElement("span");
+					element.innerHTML = newContent;
+					return element;
+				}else{
+					alert("请输入10-100的数字");
+					return null;
+				}				
+			}else{
+				alert("只能有60个队列元素");
+				return null;
+			}
+		}
+
+		function clickAction(event){
+			var content = document.getElementById("content");
+			var newContent = content.value;
+			var element=isLegal(newContent);
+			var target=event.target;
+			switch (target){
+				case btn1:
+					if(element){
+						pnode.insertBefore(element,cnode[0]);
+					}
+					break;
+				
+				case btn2:
+					if(element){
+						pnode.appendChild(element);
+					}
+					break;
+				
+				case btn3:
+					alert(cnode[0].innerHTML);
+					pnode.removeChild(cnode[0]);
+					break;
+				
+				case btn4:
+					alert(cnode[cnode.length-1].innerHTML);
+					pnode.removeChild(cnode[cnode.length-1]);
+				
+			}
+			if (element){
+			var result = inOrder(getData());
+			for(var i = 0; i < cnode.length; i++){	
+				cnode[i].innerHTML = result[i];
+				cnode[i].style.height = result[i]+"px";
+			}
+			}
+				
+		}
+
+		function getData(){
+			var arr = new Array;
+			for(var i = 0; i < cnode.length; i++){	 
+				arr.push(parseInt(cnode[i].innerHTML));
+			}
+			return arr;
+		}
+
+		function inOrder(arr){
+			for(var i = 0; i < arr.length; i++){
+				var minNum = i;
+				for(var j = i+1; j < arr.length; j++){
+					if(arr[minNum] > arr[j]){
+						minNum = j;
+					}
+				}
+				var replace = arr[i];
+				arr[i] = arr[minNum];
+				arr[minNum]=replace;
+			}
+			return arr;
+		}	
+	</script>
+</body>
+</html>

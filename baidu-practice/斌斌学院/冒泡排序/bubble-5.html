@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script>
+function inOrder(arr){
+	var len = arr.length;
+	var right = len-1;
+	var left = 0;
+	var replace;
+	 console.time('2.改进后冒泡排序耗时');
+	while(left<right){
+		var posright = left;
+		for(var i = left; i < right; i++){
+			if(arr[i]>arr[i+1]){
+				posright=i;
+				replace=arr[i];
+				arr[i]=arr[i+1];
+				arr[i+1]=replace;
+			}
+		}
+		// right--;
+		right=posright;
+		var posleft = right;
+		for(var j = right; j > left; j--){
+			if(arr[j]<arr[j-1]){
+				posleft = j;
+				replace=arr[j];
+				arr[j]=arr[j-1];
+				arr[j-1]=replace;
+			}
+		}
+		// left++;
+		left=posleft;
+	}
+	 console.timeEnd('2.改进后冒泡排序耗时');
+	return arr;
+}
+console.log(inOrder([1,2,3,58,5,6,7]));
+</script>
+</body>
+</html>

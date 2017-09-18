@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script>
+	function inOrder(arr){
+		for(var i = 0; i < arr.length; i++){
+			var minNum = i;
+			for(var j = i+1; j < arr.length; j++){
+				if(arr[minNum] > arr[j]){
+					minNum = j;
+				}
+			}
+			var replace = arr[i];
+			arr[i] = arr[minNum];
+			arr[minNum]=replace;
+		}
+		return arr;
+	}
+	var result = inOrder([4,8,1,7,9,8,98,56,35]);
+	alert(result);
+</script>
+</body>
+</html>
