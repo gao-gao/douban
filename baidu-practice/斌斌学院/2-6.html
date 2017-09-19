@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>队列实践--模糊匹配</title>
+	<style>
+		span{
+			display: inline-block;
+			vertical-align: bottom;
+			width: 40px;
+			height: 40px;
+			background-color: red;
+			text-align-last: center;;
+			margin:10px;
+		}
+
+	</style>
+</head>
+<body>
+	<textarea name="" cols="30" rows="5" id="textarea" placeholder="请输入不同字符并用空格分隔"></textarea>
+	<button id="btn1">添加</button>
+	<input type="text" id="search">
+	<button id="btn2">查询</button>
+	<div id="wrap">
+		
+	</div>
+
+	<script>
+		var btn1 = document.getElementById("btn1"),
+			btn2 = document.getElementById("btn2"),
+			wrap = document.getElementById("wrap"),
+			textarea = document.getElementById("textarea")
+			search = document.getElementById("search");
+		btn1.onclick = addAction;
+		btn2.onclick = searchAction;
+	
+		function getData(){
+			var content = textarea.value,
+				data = content.trim().split(" ");
+
+			return data;
+		}
+
+		function addAction(){
+			var data = getData()
+				len = data.length;
+
+			for(var i = 0; i < len;i++){
+				var element = document.createElement("span");
+				element.innerHTML = data[i];
+				wrap.appendChild(element);
+			}
+			console.log(data);
+		}
+		
+		function searchAction(){
+			var span = document.getElementsByTagName("span"),
+				sContent = search.value;
+				if(sContent){
+					for(var i = 0; i < span.length; i++){
+						if(span[i].innerHTML.indexOf(sContent) < 0){
+							span[i].style.backgroundColor = "red";
+						}else{
+							span[i].style.backgroundColor = "pink";
+						}
+					}
+				}
+		}
+	</script>
+</body>
+</html>
