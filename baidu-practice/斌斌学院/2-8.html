@@ -113,13 +113,24 @@
 	}
 	
 	function search(){
+		var i = 0;
 		var searchText = input.value;
-		for(var i = 0; i < arr.length; i++){
-			if(arr[i].innerText.indexOf(searchText)==0){
-				arr[i].style.backgroundColor = "blue";
+		arr[i].style.backgroundColor = "pink";
+		timer = setInterval(function(){
+			i++;
+			if(arr[i-1].innerText.indexOf(searchText)==0){
+				arr[i-1].style.backgroundColor = "blue";
 				i = arr.length;
+				clearInterval(timer);
+			}else{
+				arr[i-1].style.backgroundColor = "white";
+				arr[i].style.backgroundColor = "pink";
 			}
-		}
+			
+		},500)
+		
+			
+		
 	}
 </script>
 </body>
