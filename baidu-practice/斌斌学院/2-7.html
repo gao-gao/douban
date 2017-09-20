@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>二叉树</title>
+	<style>
+		div{
+			display: inline-block;
+			border:2px solid black;
+			margin: 10px;
+			box-sizing: border-box;
+			background-color: white;
+		}
+		div.wrap1{
+			width: 800px;
+			height: 300px;
+		}
+		div.wrap2{
+			width:375px;
+			height: 250px;
+		}
+		div.wrap3{
+			width: 162px;
+			height: 200px;
+		}
+		div.wrap4{
+			width: 56px;
+			height: 150px;
+		}
+		button{
+			background-color: pink;
+			border:1px solid pink;
+			width: 100px;
+			height: 40px;
+			border-radius: 2px;
+		}
+	</style>
+</head>
+<body>
+<button id="btn1">前序</button>
+<button id="btn2">中序</button>
+<button id="btn3">后序</button>
+<div class="wrap1" id="wrap1">
+	<div class="wrap2">
+		<div class="wrap3">
+			<div class="wrap4"></div>
+			<div class="wrap4"></div>
+		</div>
+		<div class="wrap3">
+			<div class="wrap4"></div>
+			<div class="wrap4"></div>
+		</div>
+	</div>
+	<div class="wrap2">
+		<div class="wrap3">
+			<div class="wrap4"></div>
+			<div class="wrap4"></div>
+		</div>
+		<div class="wrap3">
+			<div class="wrap4"></div>
+			<div class="wrap4"></div>
+		</div>
+	</div>
+<!-- 原理：将所有的遍历过程保存在数组中，然后对数组进行遍历改变其CSS形成动画效果 -->
+</div>
+<div style="width: 300px;height: 200px;background-color: pink;">
+	<div style="width:200px;height: 100px;"></div>
+</div>
+<script>
+	var btn1 = document.getElementById("btn1"),
+		btn2 = document.getElementById("btn2"),
+		btn3 = document.getElementById("btn3"),
+		wrap1 = document.getElementById("wrap1");
+	var arr = [],timer=null;
+	// 给各个按钮绑定事件
+	btn1.onclick = preOrer;
+	btn2.onclick = midOrder;
+	btn3.onclick = afterOrder;
+	
+	function preOrer(){
+		reset();
+		preArr(wrap1);
+		changeColor();
+	}
+	function midOrder(){
+		reset();
+		midArr(wrap1);
+		changeColor();
+	}
+	function afterOrder(){
+		reset();
+		afterArr(wrap1);
+		changeColor();
+	}
+	// 将二叉树按照前序顺序放在数组中
+	function preArr(node){
+		if(node){
+			arr.push(node);
+			preArr(node.firstElementChild);
+			preArr(node.lastElementChild);
+		}	
+		return arr;
+	}
+	// 将二叉树按照中序顺序放在数组中
+	function midArr(node){
+		if(node){
+			midArr(node.firstElementChild);
+			arr.push(node);
+			midArr(node.lastElementChild);
+		}
+		return arr;
+	}	
+	
+	// 将二叉树按照后序顺序放在数组中
+	function afterArr(node){
+		if(node){
+			afterArr(node.firstElementChild);
+			afterArr(node.lastElementChild);
+			arr.push(node);
+		}
+		return arr;
+	}	
+	// 改变背景颜色，当前遍历元素为粉红色
+	function changeColor(){
+		var i = 0;
+		arr[i].style.backgroundColor = "pink";
+		// 设置当前遍历元素背景颜色为粉色，其子元素背景颜色默认为白色，每次遍历时要将前面一个元素的背景颜色还原成白色
+		timer = setInterval(function(){	
+			i++;			
+			if(i < arr.length){
+				arr[i-1].style.backgroundColor = "white";
+				arr[i].style.backgroundColor = "pink";
+				
+			}else{
+				clearInterval(timer);
+				arr[i-1].style.backgroundColor = "white";	
+			}
+		
+			
+		},500)
+	}
+	// 重置颜色
+	function reset(){
+		arr = [];
+		clearInterval(timer);
+		var div = document.getElementsByTagName(div);
+		for(var i = 0; i < div.length; i++){
+			div[i].style.backgroundColor = "white";
+		}
+	}
+	// 进入页面时进行reset处理将所有的div背景颜色设置为白色或者通过CSS进行统一设置（元素的默认元素是透明色）
+</script>
+</body>
+</html>

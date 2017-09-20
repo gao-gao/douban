@@ -16,13 +16,12 @@
 	</style>
 </head>
 <body>
+
 	<textarea name="" cols="30" rows="5" id="textarea" placeholder="请输入不同字符并用空格分隔"></textarea>
 	<button id="btn1">添加</button>
 	<input type="text" id="search">
 	<button id="btn2">查询</button>
-	<div id="wrap">
-		
-	</div>
+	<div id="wrap"></div>
 
 	<script>
 		var btn1 = document.getElementById("btn1"),
@@ -43,13 +42,11 @@
 		function addAction(){
 			var data = getData()
 				len = data.length;
-
 			for(var i = 0; i < len;i++){
 				var element = document.createElement("span");
 				element.innerHTML = data[i];
 				wrap.appendChild(element);
 			}
-			console.log(data);
 		}
 		
 		function searchAction(){
