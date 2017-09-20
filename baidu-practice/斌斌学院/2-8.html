@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>多叉树</title>
+	<style>
+		div{
+			border:1px solid black;
+			margin: 10px;
+			display: flex;
+			padding: 2px;
+			background-color: white;
+		}
+		button{
+			width: 100px;
+			height: 40px;
+			background-color: pink;
+			border:1px solid pink;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+<body>
+<button id="btn1">开始遍历</button>
+<input type="text" id="search">
+<button id="btn2">开始查询</button>
+<div class="wrap1" id="wrap1">super
+	<div class="wrap2">car
+		<div class="wrap3">apple
+			<div class="wrap4">poor</div>
+			<div class="wrap4">pig</div>
+			<div class="wrap4">cola</div>
+			<div class="wrap4">soccor</div>
+		</div>
+		<div class="wrap3">phone</div>
+		<div class="wrap3">
+			<div class="wrap4">book</div>
+			<div class="wrap4">school</div>
+		</div>
+	</div>
+	<div class="wrap2">note
+		<div class="wrap3">human
+			<div class="wrap4">code</div>
+			<div class="wrap4">operate</div>
+			<div class="wrap4">man</div>
+		</div>
+		<div class="wrap3">program
+			<div class="wrap4">bement
+				<div class="wrap5">cat</div>
+			</div>
+			<div class="wrap4">glass</div>
+		</div>
+	</div>
+	<div class="wrap2">fish</div>
+</div>
+
+<script>
+	var btn1 = document.getElementById("btn1"),
+		btn2 = document.getElementById("btn2"),
+		input = document.getElementById("search"),
+		wrap1 = document.getElementById("wrap1");
+	var arr = [],timer = null;
+	btn1.onclick = traversalAction;
+	btn2.onclick = searchAction;
+	// 遍历节点并用背景动画展示遍历顺序
+	function traversalAction(){
+		reset();
+		traversal(wrap1);
+		changeColor();
+	}
+	function searchAction(){
+		reset();
+		traversal(wrap1);
+		search();
+	}
+	// 重置背景颜色，arr和计时器
+	function reset(){
+		clearInterval(timer);
+		arr = [];
+		var divs = document.getElementsByTagName("div");
+		for(var i = 0;i < divs.length; i++){
+			divs[i].style.backgroundColor = "white";
+		}
+	}
+
+	// 遍历节点并将其在数组中保存
+	function traversal(node){
+		if(node){
+			var child = node.children,
+				len = child.length;
+			arr.push(node);
+			for(var i = 0; i < len; i++){
+				traversal(child[i]);
+			}
+			// console.log(len);
+			// console.log(child);
+		}
+		return arr;
+	}
+	// 添加背景颜色动画
+	function changeColor(){
+		var i = 0;
+		arr[i].style.backgroundColor = "pink";
+		timer = setInterval(function(){
+			i++;
+			if(i < arr.length){
+				arr[i-1].style.backgroundColor ="white";
+				arr[i].style.backgroundColor = "pink";
+			}else{
+				clearInterval(timer);
+				arr[i-1].style.backgroundColor = "white";
+			}
+		},500)
+	}
+	
+	function search(){
+		var searchText = input.value;
+		for(var i = 0; i < arr.length; i++){
+			if(arr[i].innerText.indexOf(searchText)==0){
+				arr[i].style.backgroundColor = "blue";
+				i = arr.length;
+			}
+		}
+	}
+</script>
+</body>
+</html>
