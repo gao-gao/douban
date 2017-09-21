@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		div{
+			border:1px solid black;
+			margin: 10px;
+			display: flex;
+			padding: 2px;
+			background-color: white;
+		}
+		button{
+			width: 100px;
+			height: 40px;
+			background-color: pink;
+			border:1px solid pink;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+<body>
+<button id="btn1">删除节点</button>
+<input type="text" id="addText" placeholder="在此处输入所添加内容">
+<button id="btn2">增加节点</button>
+<button id="btn3">取消选择</button>
+<div class="wrap1" id="wrap1">super
+	<div class="wrap2">car
+		<div class="wrap3">apple
+			<div class="wrap4">poor</div>
+			<div class="wrap4">pig</div>
+			<div class="wrap4">cola</div>
+			<div class="wrap4">soccor</div>
+		</div>
+		<div class="wrap3">phone</div>
+		<div class="wrap3">
+			<div class="wrap4">book</div>
+			<div class="wrap4">school</div>
+		</div>
+	</div>
+	<div class="wrap2">note
+		<div class="wrap3">human
+			<div class="wrap4">code</div>
+			<div class="wrap4">operate</div>
+			<div class="wrap4">man</div>
+		</div>
+		<div class="wrap3">program
+			<div class="wrap4">bement
+				<div class="wrap5">cat</div>
+			</div>
+			<div class="wrap4">glass</div>
+		</div>
+	</div>
+	<div class="wrap2">fish</div>
+</div>
+<script>
+	var btn1 = document.getElementById("btn1"),
+		btn2 = document.getElementById("btn2"),
+		input = document.getElementById("search"),
+		wrap1 = document.getElementById("wrap1");
+	var arr = [];
+	btn1.onclick = deleteAction;
+	btn2.onclick = addAction;
+	btn3.onclick = reset;
+
+	// 点击时呈现选中样式
+	wrap1.onclick = function (event) {
+		event.target.style.backgroundColor = "pink";
+		arr.push(event.target)
+		// console.log(event.target);
+		return arr;
+	}
+	// 删除选中节点
+	function deleteAction(){
+		for(var i = 0; i < arr.length; i++){
+			arr[i].parentNode.removeChild(arr[i]);
+			arr = remove(arr,arr[i]);
+			i--;
+		}
+		reset();
+	}
+
+	// 向选中节点中添加节点
+	function addAction(){
+		
+		for(var i = 0; i < arr.length; i++){
+			var element = document.createElement("div");
+			var text = document.getElementById("addText").value;
+			element.innerHTML = text;
+			arr[i].appendChild(element);
+		}
+		reset();
+
+	}
+
+	function reset(){
+		arr = [];
+		var divs = document.getElementsByTagName("div");
+		for(var i = 0; i < divs.length; i++){
+			divs[i].style.backgroundColor = "white";
+		}
+	}
+	//删除数组中当前元素
+	function remove(arr, item) {
+	 var result=[];
+	    for(var i=0; i<arr.length; i++){
+	    if(arr[i]!=item){
+	        result.push(arr[i]);
+	    }
+	}
+	 return result;
+	}	
+</script>
+</body>
+</html>
