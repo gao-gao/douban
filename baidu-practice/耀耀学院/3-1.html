@@ -1,0 +1,92 @@
+<!-- 扩展知识：ASCII码一共规定了128个字符的编码 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>单个表单项的检验</title>
+	<style>
+		.wrap{
+			width: 600px;
+			margin:0 auto;
+			font-size: 20px;
+		}
+		.tip{
+			color: grey;
+			font-size: 16px;
+		}
+		input{
+			width: 400px;
+			height: 40px;
+			border-radius: 6px;
+			border:1px solid grey;
+			margin:0 20px;
+			font-size: 20px;
+		}
+		button{
+			width: 100px;
+			height: 40px;
+			border-radius: 6px;
+			border:1px solid grey;
+			background-color: pink;
+			font-size: 20px;
+			color: grey;
+		}
+		p{
+			margin-left: 80px;
+		}
+
+	</style>
+</head>
+<body>
+<div id="wrap" class="wrap">
+	<label for="input">名称</label>
+	<input type="text" name="input" id="input">
+	<button id="btn">验证</button>
+	<p id="tip" class="tip">必填，长度为4~16个字符</p>
+</div>
+<script>
+	var input = document.getElementById("input"),
+		btn = document.getElementById("btn"),
+		p = document.getElementById("tip");	
+	btn.onclick = checkAciton;
+	function checkAciton(){
+		var content = input.value;
+		console.log(content);
+		if(!content){
+			p.innerHTML = "姓名不能为空";
+			p.style.color = "red";
+			input.style.borderColor = "red";
+		}else if(/[0-9a-zA-Z\u4e00-\u9fa5]/.test(content)==true){
+			var length = getLength(content);
+			if(length > 3 && length < 17){
+				p.innerHTML = "名称格式正确";
+				p.style.color = "green";
+				input.style.borderColor = "green";
+			}else{
+				p.innerHTML = "请输入长度为4~16个字符";
+				p.style.color = "red";
+				input.style.borderColor = "red";
+			}	
+		}else{
+			p.innerHTML = "请输入长度为4~16个字符";
+			p.style.color = "red";
+			input.style.borderColor = "red";
+		}
+	}
+	// 判断中文字节，中文占两个字节，英文和数字都占一个字节，所以进行判断来确定其length
+	//charCodeAt() 方法可返回指定位置的字符的 Unicode 编码。这个返回值是 0 - 65535 之间的整数
+	function getLength(str){
+		var realLength = 0, len = str.length, charCode = -1;
+    	 for (var i = 0; i < len; i++) {
+        	charCode = str.charCodeAt(i);
+        	if (charCode >= 0 && charCode <= 128){
+        		realLength += 1;
+        	} 
+        	else{
+        		realLength += 2;
+        	} 
+    	}
+   		return realLength;
+	}
+</script>
+</body>
+</html>

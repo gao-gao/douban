@@ -1,0 +1,61 @@
+<!-- 此例是使用普通的遍历向元素添加事件，虽然也可以实现点击效果。但是对于js代码中新增的节点，发现，新增的节点中并没有添加点击事件。原因：list中保存的节点并不包括新增的节点 -->	
+
+<!DOCTYPE html>
+<html>
+<head>n
+	<title>冒泡机制--新增节点是否添加了事件</title>
+	<style>
+		li{
+			width: 300px;
+			height: 80px;
+			background: pink;
+			margin: 10px;
+		}
+		ul{
+			width: 400px;
+			height: 800px;
+			background: grey;
+		}
+		button{
+			width: 100px;
+			height: 40px;
+			background-color: pink;
+			border:1px solid pink;
+			border-radius: 5px;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var btn = document.getElementById("btn"),
+				list = document.getElementsByTagName("li"),
+				ul = document.getElementsByTagName("ul")[0];
+			
+			btn.onclick = function(){
+				var element = document.createElement("li");
+					ul.appendChild(element);
+					console.log(list);
+			}
+			function clickAction(){
+				for(var i = 0; i < list.length; i++){
+					list[i].onclick = function(){
+						this.style.backgroundColor = "red";
+					}
+				}
+				console.log(list);
+			}
+			console.log(list);
+			clickAction();
+		}
+	</script>
+</head>
+<body>
+<button id="btn">添加事件</button>
+<ul>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+
+</body>
+</html>
