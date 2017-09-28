@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>联动表单</title>
+	<style>
+		*{
+			margin:0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		form{
+			width: 600px;
+			height: 600px;
+			margin: 200px auto;
+			font-size: 18px;
+			color: grey;
+		}
+		#choose{
+			padding-left: 120px;
+			margin-bottom: 30px;
+		}
+		#choose label{
+			margin-right: 100px;
+			margin-left: 10px;
+			vertical-align: middle;
+		}
+		#company{
+			display: none;
+		}
+		#campus{
+			display: none;
+		}
+		#campus span,#company label{
+			display: inline-block;
+			width: 80px;
+			text-align: right;
+			margin-right: 40px;
+			vertical-align: middle;
+		}
+		select{
+			width: 150px;
+			height: 25px;
+			margin-right: 60px;
+			display: none;
+		}
+		#city{
+			width: 100px;
+		}
+		
+		#company input{
+			width: 300px;
+			height: 30px;
+			border:1px solid grey;
+			border-radius: 4px;
+			padding: 0 10px;
+		}
+	</style>
+</head>
+<body>
+<form action="">
+	<div id="choose">
+		<input type="radio" name="radio">
+		<label for="radio1">在校生</label>
+		<input type="radio" name="radio">
+		<label for="radio2">非在校生</label>
+	</div>
+	<div id="campus">
+		<span>学校</span>
+		<select name="city" id="city">
+			<option value="beijing">北京</option>
+			<option value="changsha">长沙</option>
+			<option value="wuhan">武汉</option>
+		</select>
+		<select name="beijing">
+			<option value="Peking">北京大学</option>
+		</select>
+		<select name="changsha">
+			<option value="csu">中南大学</option>
+			<option value="csuft">中南林业科技大学</option>
+		</select>
+		<select name="wuhan">
+			<option value="wh">武汉大学</option>
+		</select>
+	</div>
+	<div id="company">
+		<label for="company">就业单位</label>
+		<input type="text">
+	</div>
+</form>
+<script>
+	var choose = document.getElementById("choose"),
+		radio = choose.getElementsByTagName("input"),
+		campus = document.getElementById("campus"),
+		select = campus.getElementsByTagName("select"),
+		company = document.getElementById("company"),
+		cityOption  = document.getElementById("city"),
+		city = cityOption.getElementsByTagName("option");
+		radio[0].onclick = chooseAction;
+		radio[1].onclick = chooseAction;
+		select[0].onchange = selectAction;
+
+	function chooseAction(){	
+		if(radio[0].checked){
+			company.style.display = "none";
+			campus.style.display = "block";
+			select[0].style.display = "inline-block";
+			select[1].style.display = "inline-block";
+		}else if(radio[1].checked){
+			campus.style.display = "none";
+			company.style.display = "block";
+		}else{
+			company.style.display = "none";
+			campus.style.display = "none";
+		}
+	}
+	function selectAction(){
+		for(var i = 0; i < city.length;i++){
+			if(city[i].selected){
+				for(var j = 1; j < select.length; j++){
+					select[j].style.display = "none";
+				}
+				select[i+1].style.display = "inline-block";
+			}
+		}
+	}
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>UI组件--浮出层</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+
+		#fullscreen{
+			position: fixed;
+			top:0;
+			width: 100%;
+			height: 100%;
+			background-color: grey;
+			opacity: 0.7;
+			z-index: 999;
+			display: none;
+		}
+		#float{
+			position: fixed;
+			display: none;
+			top:100px;
+			left: 500px;
+			width: 400px;
+			height: 400px;
+			margin:0 auto;
+			z-index: 1000;
+			background-color: white;
+			border:2px solid black;
+			border-radius: 5px;
+		}
+		#float h3{
+			width: 100%;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			border-bottom: 2px solid black;
+			background: grey;
+			color: white;
+		}
+		#float p{
+			width: 100%;
+			height: 300px;
+			padding: 30px;
+		}
+		#float div{
+			text-align:right;
+		}
+		#float div button{
+			width: 100px;
+			height: 30px;
+			text-align: center;
+			margin-right: 30px;
+			border-radius: 5px;
+			border:1px solid grey;
+			background-color: grey;
+			color: white;
+		}
+		button.btn1{
+			width: 120px;
+			height: 40px;
+			margin-left: 300px;
+			margin-top: 300px;
+			border:1px solid grey;
+			background-color: grey;
+			color: white;
+
+		}
+		article{
+			width: 500px;
+			height: 1000px;
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+<button class="btn1">点击出现浮出层</button>
+<div id="fullscreen">
+
+</div>
+	<div id="float">
+		<h3>这是一个浮出层</h3>
+		<p>浮出层内容</p>
+		<div>
+			<button>确定</button>
+			<button>取消</button>
+		</div>
+	</div>
+<article></article>
+<script>
+	var btn = document.getElementsByTagName("button"),
+		fullscreen = document.getElementById("fullscreen"),
+		float = document.getElementById("float");
+		btn[0].onclick = showFloat;
+		btn[1].onclick = hideFloat;
+		btn[2].onclick = hideFloat;
+		fullscreen.onclick = hideFloat;
+		function showFloat(){
+			fullscreen.style.display  = "block";
+			float.style.display  = "block";
+			
+		}
+		function hideFloat(){
+			fullscreen.style.display  = "none";
+			float.style.display  = "none";
+		}
+</script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>听指令的小方块--1</title>
+	<style>
+		*{
+			margin:0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		table{
+			margin:50px auto;
+			border-collapse:collapse;
+		}
+		td{
+			border:1px solid grey;
+			width: 40px;
+			height: 40px;
+		}
+		th{
+			width: 40px;
+			height: 40px;
+			text-align: center;
+		}
+		input{
+			width: 150px;
+			height: 25px;
+			border:1px solid grey;
+			border-radius: 4px;
+			margin-right: 40px;
+		}
+		button{
+			width: 80px;
+			height: 30px;
+			border:1px solid pink;
+			background-color: pink;
+			color: grey;
+			border-radius: 4px;
+		}
+		div{
+			text-align: center;
+			padding: 50px;
+		}
+		span{
+			display: block;
+			width: 40px;
+			height: 40px;
+			box-sizing: border-box;
+			border-top:10px solid blue;
+			background-color: red;
+			position: absolute;
+			top:220px;
+			left: 540px;	
+		}
+	</style>
+</head>
+<body>
+ 	<div>
+	<!-- <input type="text"> -->
+	<button>向左</button>
+	<button>向右</button>
+	<button>向上</button>
+	<button>向下</button>
+	<button>顺时针旋转</button>
+	<button>逆时针旋转</button>
+	<button>翻转</button>
+	</div>
+	<span></span>
+<table>
+	
+	<tr>
+		<th id=""></th>
+		<th>1</th>
+		<th>2</th>
+		<th>3</th>
+		<th>4</th>
+		<th>5</th>
+		<th>6</th>
+		<th>7</th>
+		<th>8</th>
+		<th>9</th>
+		<th>10</th>
+	</tr>
+	<tr>
+		<th>1</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>2</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>3</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>4</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>5</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>6</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>7</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>8</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>9</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>10</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	</table>
+<script>
+	var btn = document.getElementsByTagName("button"),
+		div = document.getElementsByTagName("div")[0],
+		span = document.getElementsByTagName("span")[0],
+		table = document.getElementsByTagName("table")[0],
+		sLeft = span.offsetLeft,
+		sTop = span.offsetTop,
+		current = 0;
+
+		div.onclick = startMove;
+		// for(var i = 0; i < btn.length; i++){
+		// 	btn[i].index = i;
+		// 	btn[i].onclick  = startMove(this.index);
+
+		// }
+
+		function indexOf(element,arr){
+			var result = -1;
+			for(var i = 0; i < arr.length; i++){
+				if(arr[i]==element){
+					result = i ;
+				}
+			}
+			return result;
+		}
+		function startMove(event){
+			// var input = document.getElementsByTagName("input")[0],
+			// 	value = input.value;
+			var chosenBtn = event.target;
+			console.log(btn);
+			var j = indexOf(chosenBtn,btn);
+			console.log(j);
+			switch(j){
+				case 1 :
+					if(sLeft>=540&&sLeft<900){
+						sLeft+=40;
+						span.style.left = sLeft+"px";
+					}
+				break;
+				case 0 :
+					if(sLeft>540&&sLeft<=900){
+						sLeft-=40;
+						span.style.left = sLeft+"px";
+					}
+				break;
+				case 3 :
+					if(sTop>=220&&sTop<580){
+						sTop+=40;
+						span.style.top = sTop+"px";
+
+					}
+				break;
+				case 2:
+					if(sTop>220&&sTop<=580){
+						sTop-=40;
+						span.style.top = sTop+"px";
+					}
+				break;
+				case 4:
+					if(current == 0){
+						current+=90;
+						span.style.transform = "rotate(90deg)";
+					}else if(current==90){
+						current+=90;
+						span.style.transform = "rotate(180deg)";
+					}else if(current==180){
+						current+=90;
+						span.style.transform = "rotate(270deg)";
+					}else if(current==270){
+						current=0;
+						span.style.transform = "rotate(360deg)";
+					}
+				break;
+				case 5:
+					if(current == 0){
+						current+=90;
+						span.style.transform = "rotate(270deg)";
+					}else if(current==90){
+						current+=90;
+						span.style.transform = "rotate(180deg)";
+					}else if(current==180){
+						current+=90;
+						span.style.transform = "rotate(90deg)";
+					}else if(current==270){
+						current=0;
+						span.style.transform = "rotate(0deg)";
+					}
+				break;	
+				case 6:
+					if(current == 0){
+						current=180;
+						span.style.transform = "rotate(180deg)";
+					}else if(current==90){
+						current=270;
+						span.style.transform = "rotate(270deg)";
+					}else if(current==180){
+						current=0;
+						span.style.transform = "rotate(360deg)";
+					}else if(current==270){
+						current=90;
+						span.style.transform = "rotate(90deg)";
+					}
+			}
+
+		}
+</script>
+</body>
+</html>

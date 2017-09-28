@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		*{
+			margin:0;
+			padding: 0;
+		}
+		form{
+			width: 600px;
+			height: auto;
+			margin: 30px auto;
+		}
+		label{
+			width: 80px;
+			height: 40px;
+			display: inline-block;
+			text-align: right;
+		}
+		input{
+			width: 400px;
+			height: 40px;
+			border-radius: 6px;
+			border:1px solid grey;
+			margin:0 40px;
+			font-size: 20px;
+		}
+		button{
+			width: 100px;
+			height: 40px;
+			border-radius: 6px;
+			border:1px solid grey;
+			background-color: grey;
+			font-size: 20px;
+			color: white;
+			margin-left: 430px;
+			margin-top: 50px;
+		}
+		p{
+			margin-left: 130px;
+			color: grey;
+			margin-bottom: 20px;
+			visibility: hidden;
+		}
+	</style>	
+</head>
+<body>
+	<form id="form">
+		<label for="input">名称</label>
+		<input type="text" name="input" id="name">
+		<p id="tip" class="tip">必填，长度为4~16个字符，可中文</p>
+
+		<label for="input">密码</label>
+		<input type="password" name="input" id="password">
+		<p id="tip" class="tip">必填，长度为6~11个英文或数字</p>
+
+		<label for="input">密码确认</label>
+		<input type="password" name="input" id="repassword">
+		<p id="tip" class="tip">必填，长度为6~11个英文或数字</p>
+
+		<label for="input">邮箱</label>
+		<input type="text" name="input" id="email">
+		<p id="tip" class="tip">必填，长度为4~16个字符</p>
+
+		<label for="input">手机</label>
+		<input type="text" name="input" id="phone">
+		<p id="tip" class="tip">必填，长度为4~16个字符</p>
+
+		<button id="btn">提交</button>
+	<form>
+	<script>
+		var inputList = document.getElementsByTagName("input"),
+			pList = document.getElementsByTagName("p"),
+			btn = document.getElementById('btn');
+		var result = 0;
+		var a=0,b=0,c=0,e=0,d=0;
+			btn.onclick = function(){
+				if(result==inputList.length){
+					alert("提交成功")
+				}else{
+					alert("提交失败")
+				}
+			}
+			
+			for(var i = 0; i < inputList.length; i++){
+				inputList[i].index = i;
+				inputList[i].onfocus = function(){
+					pList[this.index].style.visibility = "visible";
+				}
+				inputList[i].onblur = function(){
+					var current = this.index;
+					checkAction(current);
+					
+				}
+			}
+
+		function checkAction(index){
+			switch (inputList[index].id){
+				case "name":
+				checkName(index);
+				break;
+				case "password":
+				checkPassword(index);
+				break;
+				case "repassword":
+				checkRepassword(index);
+				break;
+				case "email":
+				checkEmail(index);
+				break;
+				case "phone":
+				checkPhone(index);
+				break;
+			}
+		}
+
+		function checkName(index){
+			var content = inputList[index].value;
+			if(!content){
+				pList[index].innerHTML = "姓名不能为空";
+				pList[index].style.color = "red";
+				inputList[index].style.borderColor = "red";
+			}else if(/[0-9a-zA-Z\u4e00-\u9fa5]/.test(content)==true){
+				var length = getLength(content);
+				if(length > 3 && length < 17){
+					pList[index].innerHTML = "验证通过";
+					pList[index].style.color = "green";
+					inputList[index].style.borderColor = "green";
+					result = result+1-a;
+					a++;
+					console.log(result);
+				}else{
+					pList[index].innerHTML = "请输入长度为4~16个字符";
+					pList[index].style.color = "red";
+					inputList[index].style.borderColor = "red";
+				}	
+			}else{
+				pList[index].innerHTML = "请输入长度为4~16个字符";
+				pList[index].style.color = "red";
+				inputList[index].style.borderColor = "red";
+			}
+		}
+		
+		function checkPassword(index){
+			var content = inputList[index].value;
+			var conText;
+			if(!content){
+				pList[index].innerHTML = "密码不能为空";
+				pList[index].style.color = "red";
+				inputList[index].style.borderColor = "red";
+			}else if(/[0-9a-zA-Z]{6,11}/.test(content)==true){	
+				pList[index].innerHTML = "验证通过";
+				pList[index].style.color = "green";
+				inputList[index].style.borderColor = "green";
+				conText = content;
+				result = result+1-b;
+				b++;
+				console.log(result);
+			}else{
+				pList[index].innerHTML = "请输入长度为6~11个英文或数字";
+				pList[index].style.color = "red";
+				inputList[index].style.borderColor = "red";
+			}	
+			return conText;		
+		}
+
+		function checkRepassword(index){	
+			var conText = checkPassword(index-1),
+				content = inputList[index].value;
+			if(content == conText){
+				pList[index].innerHTML = "验证通过";
+				pList[index].style.color = "green";
+				inputList[index].style.borderColor = "green";
+				result = result+1-c;
+				c++;
+				console.log(result);
+			}else{
+				pList[index].innerHTML = "与前面所填密码不一致";
+				pList[index].style.color = "red";
+				inputList[index].style.borderColor = "red";
+			}
+
+		}
+
+		function checkEmail(index){
+			var content = inputList[index].value;
+			if(!content){
+				pList[index].innerHTML = "邮箱不能为空";
+				pList[index].style.color = "red";
+				inputList[index].style.borderColor = "red";
+			}else if(/^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/.test(content)==true){	
+				pList[index].innerHTML = "验证通过";
+				pList[index].style.color = "green";
+				inputList[index].style.borderColor = "green";
+				result = result+1-d;
+				d++;
+				console.log(result);
+			}else{
+				pList[index].innerHTML = "邮箱格式有误";
+				pList[index].style.color = "red";
+				inputList[index].style.borderColor = "red";
+			}				
+		}
+
+		function checkPhone(index){
+			var content = inputList[index].value;
+			if(!content){
+				pList[index].innerHTML = "电话号码不能为空";
+				pList[index].style.color = "red";
+				inputList[index].style.borderColor = "red";
+			}else if(/^1[34578]\d{9}$/.test(content)==true){
+				pList[index].innerHTML = "验证通过";
+				pList[index].style.color = "green";
+				inputList[index].style.borderColor = "green";
+				result = result+1-e;
+				e++;
+				console.log(result);
+			}else{
+				pList[index].innerHTML = "电话号码格式有误";
+				pList[index].style.color = "red";
+				inputList[index].style.borderColor = "red";
+			}
+		}
+
+		function getLength(str){
+			var realLength = 0, len = str.length, charCode = -1;
+    		 for (var i = 0; i < len; i++) {
+    	    	charCode = str.charCodeAt(i);
+    	    	if (charCode >= 0 && charCode <= 128){
+    	    		realLength += 1;
+    	    	} 
+    	    	else{
+    	    		realLength += 2;
+    	    	} 
+    		}
+   			return realLength;
+		}
+		function checkArr(arr,obj){
+			var result = false;
+			for(var i = 0; i < arr.length; i++){
+				if(arr[i] == obj){
+					result = true;
+				}
+			}
+			return result;
+		}
+
+	</script>
+</body>
+</html>

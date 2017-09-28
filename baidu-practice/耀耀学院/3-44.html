@@ -1,0 +1,163 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+  <title>yaoyaoTask4</title>  
+  <meta charset="utf-8">  
+  <style type="text/css">  
+    #block{  
+      position: absolute;  
+      top: 8px;  
+      left: 8px;  
+    }  
+    
+  </style>  
+   
+ </head>  
+<body>  
+  
+ <canvas id="canvas" width="300" height="300"></canvas>  
+ <canvas id="block" width="30" height="30"></canvas>  
+ <br>  
+ <input type="text" id="order">  
+ <input type="button" id="dod" value="执行">  
+ <script type="text/javascript">  
+  
+   var canvas =document.getElementById("canvas");  
+   var ctx = canvas.getContext("2d");  
+//canvas画棋盘  
+   function backgroundimg (){  
+   ctx.fillStyle="#ccc";  
+   ctx.fillRect = (0,0,canvas.width,canvas.height);  
+     
+   var grid_cols =10;  
+   var grid_rows=10;  
+   var cell_height=canvas.height/grid_rows;  
+   var cell_width=canvas.width/grid_cols;  
+   ctx.lineWidth=1;  
+   ctx.strokeStyle="silver";  
+   ctx.beginPath();  
+   for(var col=0;col<=grid_cols;col++){  
+    var x=col*cell_width;  
+    ctx.moveTo(x,0);  
+    ctx.lineTo(x,canvas.height);  
+   }  
+   for(var row=0;row<=grid_rows;row++){  
+    var y=row*cell_height;  
+    ctx.moveTo(0,y);  
+    ctx.lineTo(canvas.width,y);  
+   }  
+   ctx.stroke();  
+ }  
+ //canvas画小方块  
+   function bloc(){  
+   var block=document.getElementById("block");  
+   var blo=block.getContext("2d");  
+   blo.fillStyle="red";  
+   blo.fillRect(0,0,block.width,block.height);  
+   blo.fillStyle="blue";  
+   blo.fillRect(0,0,block.width,block.height/4);  
+}  
+  
+var order=document.getElementById("order");  
+var dod=document.getElementById("dod");  
+var current=0;  
+var to=8;  
+ var lef=8;  
+ window.addEventListener("load",function(){  
+  backgroundimg();  
+  bloc();  
+   
+ var block=document.getElementById("block");  
+     function moveUp(){  
+       to-=30;  
+           if(to>=8&&to<=278){  
+              
+            block.style.top=to + "px";  
+           }else{  
+            to+=30;  
+            alert("已到棋盘边界!");  
+         }  
+    }  
+  
+    function moveDown(){  
+      to+=30;  
+           if(to>= 8 && to<=278){  
+  
+            block.style.top=to+"px";  
+           }else{  
+            to-=30;  
+            alert("已到棋盘边界!");  
+              
+            }  
+    }  
+  
+    function moveLeft(){  
+       lef-=30;  
+            if(lef>=8&&lef<=278){  
+                
+              block.style.left=lef+"px";  
+            }else{  
+              lef+=30;  
+              alert("已到棋盘边界!");  
+             
+            }  
+    }  
+  
+    function moveRight(){  
+          lef+=30;  
+            if(lef>=8&&lef<=278){  
+                
+              block.style.left=lef+"px";  
+            }else{  
+              lef-=30;  
+              alert("已到棋盘边界!");  
+                
+            }  
+    }  
+      
+    function turn(ang){  
+      current=(current+ang)%360;  
+      block.style.transform='rotate('+ current +'deg)';  
+    }  
+  
+    function rotat(){  
+      block.style.transform='rotate('+ current +'deg)';  
+    }  
+  dod.addEventListener("click",function(){  
+    
+   switch(order.value) {  
+    case "TUN LEF": turn(270); break;  
+    case "TUN RIG":turn(90); break;  
+    case "TUN BAC": turn(180); break;  
+    case "GO":  
+        switch(current%360) {  
+           case 0: moveUp(); break;  
+           case 90: moveRight(); break;  
+           case 180: moveDown(); break;  
+           case 270: moveLeft(); break;};break;  
+  
+   case "TRA LEF":  moveLeft(); break;  
+   case "TRA RIG":  moveRight(); break;  
+   case "TRA TOP":  moveUp(); break;  
+   case "TRA BOT":  moveDown(); break;  
+     
+   case "MOV LEF": current=270; rotat(); moveLeft();  
+          break;  
+   case "MOV RIG": current=90; rotat(); moveRight();  
+          break;  
+   case "MOV TOP": current=0; rotat(); moveUp();  
+          break;  
+   case "MOV BOT": current=180; rotat(); moveDown();  
+          break;  
+   default: alert("指令输入错误!");  
+  
+}  
+    //order.value="";  
+   // order.focus();  
+  },false);  
+  
+ },false);  
+  
+ </script>  
+</body>  
+</html>  

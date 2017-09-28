@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>UI组件--排序表格</title>
+	<style>
+		table{
+			border-collapse: collapse;
+			text-align: center;
+			margin:0 auto;
+		}
+		th,td{
+			width: 100px;
+			height: 40px;
+			border:1px solid grey;
+		}
+		div{
+			text-align: center;
+		}
+		button{
+			width: 100px;
+			height: 40px;
+			background-color: pink;
+			border:1px solid pink;
+			border-radius: 4px;
+			color: grey;
+			margin: 40px 15px;
+		}
+	</style>
+</head>
+<body>
+<div>
+	<button>按语文排序</button>
+	<button>按数学排序</button>
+	<button>按英语排序</button>
+	<button>按总分排序</button>
+</div>
+<table>
+	<tr>
+		<th>姓名</th>
+		<th>语文</th>
+		<th>数学</th>
+		<th>英语</th>
+		<th>总分</th>
+	</tr>
+	<tr>
+		<td>小明</td>
+		<td>3</td>
+		<td>3</td>
+		<td>2</td>
+		<td>2</td>
+	</tr>
+	<tr>
+		<td>小红</td>
+		<td>2</td>
+		<td>1</td>
+		<td>1</td>
+		<td>3</td>
+	</tr>
+	<tr>
+		<td>小亮</td>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>1</td>
+	</tr>
+</table>
+<script>
+	var btn = document.getElementsByTagName("button"),
+		tr = document.getElementsByTagName("tr"),
+		arr = [];
+		btn[0].onclick = chineseOrder;
+		btn[1].onclick = mathOrder;
+		btn[2].onclick = englishOrder;
+		btn[3].onclick = totalOrder;
+		function chineseOrder(){
+			getData(1);
+			maxOrder(arr);
+		}
+		function mathOrder(){
+			getData(2);
+			maxOrder(arr);
+		}
+		function englishOrder(){
+			getData(3);
+			maxOrder(arr);
+		}
+		function totalOrder(){
+			getData(4);
+			maxOrder(arr);
+		}
+		function getData(j){
+			arr = [];
+			for(var i = 1; i < tr.length; i++){
+				arr.push(tr[i].getElementsByTagName("td")[j].innerHTML);
+			}
+			console.log(arr)
+			return arr;
+		}
+		
+		function maxOrder(arr){
+			for(var i = 0; i < arr.length-1; i++){
+				for(var j = 0; j < arr.length-1-i; j++){
+					if(arr[j] > arr[j+1]){
+						var replace1 = tr[j+1].innerHTML;
+							tr[j+1].innerHTML = tr[j+2].innerHTML;
+							tr[j+2].innerHTML = replace1;
+						var replace2 = arr[j];
+							arr[j] = arr[j+1];
+							arr[j+1] = replace2;
+					}
+				}
+
+			}
+		}
+
+		
+
+</script>
+</body>
+</html>
