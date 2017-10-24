@@ -3,46 +3,49 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />  
     <title>网易云课堂</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-    <header>
-        <div class="ad" id="ad">
-            <div>
-                <p class="ad-left">网易云课堂微专业，帮助你掌握专业技能，令你求职或加薪多一份独特优势！ <span>立即查看></span></p>
-                <p class="ad-right"><span id="close"></span>不再提醒</p>
-            </div>
+    <!-- 广告条 -->
+    <div class="ad" id="ad">
+        <div>
+            <p class="ad-left">网易云课堂微专业，帮助你掌握专业技能，令你求职或加薪多一份独特优势！ <span>立即查看></span></p>
+            <p class="ad-right"><span id="close"></span>不再提醒</p>
         </div>
-        <div class="nav">
-            <div class="nav-left">
-
-                <h1><span></span>网易教育产品部</h1>
-                <span class="green" id="star"><span></span>关注</span>
-                <span class="stared" id="stared"><span>已关注</span><span class="line"></span><span class="cancel" id="cancel">取消</span></span>
-                <span>粉丝 45</span>
-            </div>
-            <div class="nav-right">
-                <a href="http://open.163.com/" target="_blank">网易云课堂</a>
-                <a href="http://study.163.com/" target="_blank">云课堂</a>
-                <a href="http://www.icourse163.org/" target="_blank">中国大学MOOC</a>
-                <div class="search"></div>
-            </div>
+    </div>
+    <!-- 顶部导航区 -->
+    <div class="top">
+        <div class="t-left">
+            <h1>网易教育产品部</h1>
+            <span class="green" id="star">关注</span>
+            <span class="stared" id="stared"><span>已关注</span><span class="line"></span><a class="cancel" id="cancel" href="#">取消</a></span>
+            <span>粉丝 45</span>
         </div>
-    </header>
+    
+        <div class="t-right">
+            <a href="httopen.163.com/" target="_blank">网易云课堂</a>
+            <a href="httstudy.163.com/" target="_blank">云课堂</a>
+            <a href="httwww.icourse163.org/" target="_blank">中国大学MOOC</a>
+            <span class="search"></span>
+        </div>
+    </div>
+    <!-- 轮播图 -->
     <div class="banner" id="banner">
-        <div id="bannerimg" class="bannerimg">
+        <div id="b-img" class="b-img">
             <a href="http://open.163.com/" target="_blank"><img src="images/banner1.jpg" alt=""></a>
             <a href="http://study.163.com/" target="_blank"><img src="images/banner2.jpg" alt=""></a>
             <a href="http://www.icourse163.org/" target="_blank"><img src="images/banner3.jpg" alt=""></a>
         </div>
-        <div class="bannernav" id="bannernav">
+        <div class="b-nav" id="b-nav">
             <span class="black"></span>
             <span></span>
             <span></span>
         </div>
     </div>
+    <!-- product三个产品 -->
     <div class="product">
         <div>
             <h3>网易公开课</h3>
@@ -60,6 +63,7 @@
             <a href="http://www.icourse163.org/">了解更多></a>
         </div>
     </div>
+    <!-- 环境图片区域 -->
     <div class="enviroment">
         <ul>
             <li><img src="images/en1.png" alt=""></li>
@@ -70,9 +74,43 @@
 
         </ul>
     </div>
+    <!-- 课程列表 -->
     <div class="wrap">
         <div class="course">
-            <div class="main">
+         <div class="c-right">
+                <div class="video">
+                    <h3>机构介绍</h3>
+                    <p>观看下面的视频来了解吧：</p>
+                    <video width="180px" height="110px" poster="    images/video.jpg">
+                    <source src="http://mov.bn.netease.com/    open-movie/nos/mp4/2014/12/30/  SADQ86F5S_shd.mp4" type="video/mp4"></video>
+                </div>
+                <div class="list">
+                    <h3>最热排行</h3>
+                    <ul>
+                        <li><img src="images/list1.png" alt="">
+                            <p>舞曲揭秘音乐揭秘</p><span>21567</span></li>
+                        <li><img src="images/list2.png" alt="">
+                            <p>舞曲揭秘音乐揭秘</p><span>21567</span></li>
+                        <li><img src="images/list3.png" alt="">
+                            <p>舞曲揭秘音乐揭秘</p><span>21567</span></li>
+                        <li><img src="images/list4.png" alt="">
+                            <p>舞曲揭秘音乐揭秘</p><span>21567</span></li>
+                        <li><img src="images/list5.png" alt="">
+                            <p>舞曲揭秘音乐揭秘</p><span>21567</span></li>
+                        <li><img src="images/list6.png" alt="">
+                            <p>舞曲揭秘音乐揭秘</p><span>21567</span></li>
+                        <li><img src="images/list7.png" alt="">
+                            <p>舞曲揭秘音乐揭秘</p><span>21567</span></li>
+                        <li><img src="images/list8.png" alt="">
+                            <p>舞曲揭秘音乐揭秘</p><span>21567</span></li>
+                        <li><img src="images/list9.png" alt="">
+                            <p>舞曲揭秘音乐揭秘</p><span>21567</span></li>
+                        <li><img src="images/list10.jpg" alt="">
+                            <p>舞曲揭秘音乐揭秘</p><span>21567</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="c-left">
                 <h3>
                     <a href="" class="current" id="design">产品设计</a>
                     <a href="" id="code">编程语言</a>
@@ -156,14 +194,6 @@
                             <p>混音全揭秘，舞曲实战篇，揭秘音乐揭秘</p><span class="des">音频帮</span><span class="num">510</span> <span class="price">¥ 800.00</span></li>
                         <li><img src="images/cou1.png" alt="">
                             <p>混音全揭秘，舞曲实战篇，揭秘音乐揭秘</p><span class="des">音频帮</span><span class="num">510</span> <span class="price">¥ 800.00</span></li>
-                        <li><img src="images/cou1.png" alt="">
-                            <p>混音全揭秘，舞曲实战篇，揭秘音乐揭秘</p><span class="des">音频帮</span><span class="num">510</span> <span class="price">¥ 800.00</span></li>
-                        <li><img src="images/cou1.png" alt="">
-                            <p>混音全揭秘，舞曲实战篇，揭秘音乐揭秘</p><span class="des">音频帮</span><span class="num">510</span> <span class="price">¥ 800.00</span></li>
-                        <li><img src="images/cou1.png" alt="">
-                            <p>混音全揭秘，舞曲实战篇，揭秘音乐揭秘</p><span class="des">音频帮</span><span class="num">510</span> <span class="price">¥ 800.00</span></li>
-                        <li><img src="images/cou1.png" alt="">
-                            <p>混音全揭秘，舞曲实战篇，揭秘音乐揭秘</p><span class="des">音频帮</span><span class="num">510</span> <span class="price">¥ 800.00</span></li>
                     </ul>
                     <ul class="pages">
                         <li class="pages-wrap">
@@ -180,40 +210,12 @@
                     </ul>
                 </div>
             </div>
-            <div class="video">
-                <h3>机构介绍</h3>
-                <p>观看下面的视频来了解吧：</p>
-                <video width="180px" height="110px" poster="images/video.jpg">
-				<source src="http://mov.bn.netease.com/open-movie/nos/mp4/2014/12/30/SADQ86F5S_shd.mp4" type="video/mp4">
-			</video>
-
-            </div>
-            <div class="list">
-                <h3>最热排行</h3>
-                <ul>
-                    <li><img src="images/list1.png" alt="">
-                        <p>舞曲揭秘音乐揭秘</p><span>21567</span></li>
-                    <li><img src="images/list2.png" alt="">
-                        <p>舞曲揭秘音乐揭秘</p><span>21567</span></li>
-                    <li><img src="images/list3.png" alt="">
-                        <p>舞曲揭秘音乐揭秘</p><span>21567</span></li>
-                    <li><img src="images/list4.png" alt="">
-                        <p>舞曲揭秘音乐揭秘</p><span>21567</span></li>
-                    <li><img src="images/list5.png" alt="">
-                        <p>舞曲揭秘音乐揭秘</p><span>21567</span></li>
-                    <li><img src="images/list6.png" alt="">
-                        <p>舞曲揭秘音乐揭秘</p><span>21567</span></li>
-                    <li><img src="images/list7.png" alt="">
-                        <p>舞曲揭秘音乐揭秘</p><span>21567</span></li>
-                    <li><img src="images/list8.png" alt="">
-                        <p>舞曲揭秘音乐揭秘</p><span>21567</span></li>
-                    <li><img src="images/list9.png" alt="">
-                        <p>舞曲揭秘音乐揭秘</p><span>21567</span></li>
-                    <li><img src="images/list10.jpg" alt="">
-                        <p>舞曲揭秘音乐揭秘</p><span>21567</span></li>
-                </ul>
-            </div>
+           
         </div>
+
+
+
+
         <footer>
             <div class="footer-wrap">
                 <div class="copyright">
@@ -269,7 +271,6 @@
         <script src="js/cookie.js"></script>
         <script src="js/ajax.js"></script>
         <script src="js/main.js"></script>
-
 </body>
 
 </html>

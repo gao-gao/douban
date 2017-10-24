@@ -138,10 +138,10 @@ function staredAction(x) {
 
 // 轮播图
 var banner = document.getElementById("banner"),
-    bannerimg = document.getElementById("bannerimg"),
-    bannernav = document.getElementById("bannernav"),
-    blink = bannerimg.getElementsByTagName("a"),
-    navspan = bannernav.getElementsByTagName("span"),
+    bimg = document.getElementById("b-img"),
+    bnav = document.getElementById("b-nav"),
+    blink = bimg.getElementsByTagName("a"),
+    navspan = bnav.getElementsByTagName("span"),
     index = 0,
     timer1 = null,
     timer2 = null,
@@ -193,9 +193,11 @@ function fadeIn(element, target) {
             speed = -5;
         }
         if (alpha == target) //若传入的的透明度等于本来的透明度就清除定时器
-        {
-            alpha = 50;
+        {  
+            element.style.filter = "alpha(opacity:" + alpha + ")";
+            element.style.opacity = alpha / 100;
             clearInterval(timer2);
+            alpha = 50;
         } else {
             alpha = alpha + speed;
             element.style.filter = "alpha(opacity:" + alpha + ")";

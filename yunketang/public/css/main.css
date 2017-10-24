@@ -12,190 +12,170 @@ body {
 a {
     text-decoration: none
 }
-
 ul,
 ol,
 li {
     list-style: none;
 }
 
+/* 广告部分 */
 .ad {
-    width: 100%;
+    display: none;
     height: 36px;
     background-color: #f3f3f3;
     line-height: 36px;
-    display: none;
 }
+@media screen and (max-width: 1205px){
+    .ad div,.top,.product,.course,.footer-wrap {
+    width: 960px;
+    margin: 0 auto;
 
-.ad div {
+    }
+}
+@media screen and (min-width: 1205px){
+   .ad div,.top,.product,.course ,.footer-wrap{
     width: 1200px;
     margin: 0 auto;
+    }
 }
-
 .ad-left {
     float: left;
-    font-size: 12px;
 }
-
 .ad-left span {
     color: #4fb173;
 }
-
 .ad-right {
     float: right;
 }
-
-.ad-right span {
+.ad-right span{
     display: inline-block;
-    width: 15px;
-    height: 15px;
-    background: url(../images/sprites.png) -8px -2px no-repeat;
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    background: url(../images/sprites.png) -59px -14px no-repeat;
 }
+/*广告部分结束*/
 
-.nav {
-    width: 1200px;
+/* 头部导航 */
+.top{
     height: 89px;
     line-height: 89px;
-    margin: 0 auto;
 }
-
-.nav-left {
+.t-left {
     float: left;
 }
 
-.nav-left h1 {
+.t-left h1 {
     font-size: 22px;
-    display: inline-block;
+    display: inline;
     margin-right: 30px;
+    padding-left: 78px;
+    background: url(../images/sprites.png) -10px -159px no-repeat;
 }
 
-.nav-left h1 span {
+.t-left span.green {
     display: inline-block;
-    width: 90px;
-    height: 25px;
-    background: url(../images/sprites.png) 3px -40px no-repeat;
-    vertical-align: middle;
-}
-
-.nav-left span.green {
     width: 56px;
     height: 23px;
+    padding-left: 20px;
+    margin-right: 13px;
+    border: 1px solid #fff;
+    border-radius: 2px;
+    background: url(../images/sprites.png) -5px -15px no-repeat;
+    background-color: #21a557;
     line-height: 21px;
     font-size: 12px;
     color: #fff;
-    background-color: #21a557;
-    padding-left: 6px;
-    box-sizing: border-box;
-    border-radius: 2px;
-    margin-right: 13px;
-    border: 1px solid #fff;
-    display: inline-block;
 }
-
-.nav-left span.green:hover {
+.t-left span.green:hover {
     border: 1px solid #21a557;
 }
 
-.nav-left span.green span {
-    width: 15px;
-    height: 15px;
-    display: inline-block;
-    vertical-align: middle;
-    background: url(../images/sprites.png) -32px -6px no-repeat;
-}
-
-.nav-left span.stared {
-    display: inline-block;
-    text-align: center;
+/* 已关注样式 */
+.t-left span.stared {
+    display: none;
     width: 106px;
     height: 21px;
     line-height: 21px;
-    font-size: 12px;
-    display: inline-block;
-    padding-left: 6px;
-    box-sizing: border-box;
-    border-radius: 2px;
+    padding-left: 18px;
     margin-right: 13px;
-    color: #333;
     border: 1px solid #efefef;
-    display: none;
-    background: url(../images/staredlogo.png) -3px 2px no-repeat;
+    border-radius: 2px;
     background-color: #f3f3f3;
+    background: url(../images/sprites.png) -132px -94px no-repeat;
+    color: #333;
 }
-
-.nav-left span.cancel {
+/* 取消关注样式 */
+.t-left a.cancel {
     color: #999;
 }
-
-.nav-left span.cancel:hover {
+.t-left a.cancel:hover {
     color: #21a557;
     text-decoration: underline;
     text-decoration-color: #21a557;
 }
-
-.nav-left span span.line {
+.t-left span span.line {
     display: inline-block;
     width: 1px;
     height: 10px;
-    vertical-align: middle;
     margin: 5px 9px;
+    vertical-align: middle;
     background-color: #ccc;
 }
 
-.nav-right {
+.t-right {
     float: right;
 }
 
-.nav-right a {
+.t-right a {
     margin-left: 12px;
     color: #666666;
 }
 
-.nav-right a:hover {
+.t-right a:hover {
     color: #4fb173;
 }
 
-.nav-right div.search {
-    width: 25px;
-    height: 25px;
-    background: url(../images/sprites.png) -61px -4px no-repeat;
+.t-right span.search {
     display: inline-block;
-    margin-left: 15px;
     vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    background: url(../images/sprites.png) -50px -80px no-repeat;
 }
-
+/*头部结束*/
+/* 轮播图 */
 .banner {
     position: relative;
     width: 100%;
-    height: 461px;
+    height: 461px; 
     overflow: hidden;
 }
-
-.banner .bannerimg {
-    width: 100%;
-    height: auto;
+.banner .b-img {
     position: absolute;
     top: 0;
     left: 0;
-}
-
-.banner .bannerimg a {
-    display: block;
     width: 100%;
-    height: 461px;
+    height: 461px; 
+}
+.banner .b-img a{
     filter: alpha(opacity: 50);
     opacity: 0.5;
 }
+.banner .b-img img {
+    display: block;
+    width: 100%;
+    height: 461px; 
+}
 
-.banner .bannernav {
+.banner .b-nav {
     position: absolute;
     width: 100%;
     text-align: center;
     left: 0;
     bottom: 20px;
 }
-
-.banner .bannernav span {
+.banner .b-nav span {
     display: inline-block;
     width: 14px;
     height: 14px;
@@ -203,41 +183,34 @@ li {
     margin-right: 10px;
     background-color: #fff;
 }
-
-.banner .bannernav span.black {
+.banner .b-nav span.black {
     background-color: #333;
 }
-
+/*轮播图结束*/
+/* 产品介绍 */
 .product {
-    width: 1200px;
-    height: 298px;
-    margin: 0 auto;
-    padding-top: 80px;
-    padding-bottom: 60px;
+    padding: 80px 0 60px 0;
 }
-
 .product div {
-    width: 344px;
-    height: 176px;
-    margin-left: 84px;
     float: left;
-    padding-left: 127px;
+    position: relative;
+    width: 33.3%;
+    height: 298px;
+    padding-left: 100px;
+    padding-right: 80px;
 }
 
 .product div:nth-child(1) {
-    background: url(../images/logo1.png) 0 8px no-repeat;
+    background: url(../images/logo1.png) 0px 8px no-repeat;
 }
 
 .product div:nth-child(2) {
-    background: url(../images/logo2.png) 0 8px no-repeat;
+    background: url(../images/logo2.png) 0px 8px no-repeat;
 }
 
 .product div:nth-child(3) {
-    background: url(../images/logo3.png) 0 8px no-repeat;
-}
+    background: url(../images/logo3.png) 0px 8px no-repeat;
 
-.product div:first-child {
-    margin-left: 0;
 }
 
 .product div h3 {
@@ -250,94 +223,86 @@ li {
 .product div p {
     font-size: 14px;
     line-height: 24px;
-    margin-bottom: 34px;
 }
-
 .product div a {
+    position: absolute;
+    bottom: 40px;
     font-size: 14px;
     line-height: 24px;
     color: #71b56c;
-}
-
+    }
 .product div a:hover {
     font-size: 15px;
 }
-
+/*产品介绍结束*/
+/* 环境图组 */
 .enviroment {
     width: 100%;
     height: 223px;
-    border-top: 1px solid #f8f8f8;
-    background-color: #f8f8f8;
     overflow: hidden;
+    border-top: 1px solid #f8f8f8;
 }
-
 .enviroment ul li {
+    float: left;
     width: 20%;
     height: 222px;
     padding-right: 4px;
-    float: left;
 }
-
+/*环境图组结束*/
+/* 课程展示部分 */
 .wrap {
     width: 100%;
+    padding-top: 30px;
     background-color: #f8f8f8;
-    padding-top: 80px;
-}
 
+}
 .course {
-    width: 1200px;
-    height: 1549px;
-    margin: 0 auto;
-    position: relative;
+    margin: 0 auto;  
+    overflow: hidden;
 }
-
-.course .main {
-    width: 982px;
-    position: absolute;
-    top: 0;
-    left: 0;
+.course .c-left{
+    margin-right: 223px;
+    margin-bottom: 160px;
 }
-
+.course .c-right{
+    width: 223px;
+    float: right;
+}
+.course .c-right,.course .c-left{
+    padding-bottom: 9999px;
+    margin-bottom: -9900px;
+}
 #codepart {
     display: none;
 }
-
-.main h3 {
+.c-left h3 {
     width: 407px;
     height: 52px;
-    box-shadow: 1px 1px 1px 1px #d4d3d3;
     margin-bottom: 30px;
+    box-shadow: 1px 1px 1px 1px #d4d3d3;
 }
-
-.main h3 a {
+.c-left h3 a {
     display: inline-block;
     width: 201px;
     height: 52px;
-    color: #666;
-    font-size: 20px;
-    text-align: center;
     line-height: 52px;
+    text-align: center;
+    font-size: 20px;
+    color: #666;    
 }
-
-.main h3 a.current {
+.c-left h3 a.current {
     background-color: #39a030;
     color: #fff;
 }
-
-.main ul.cour li {
-    width: 223px;
-    height: 228px;
-    border: 1px solid #f1f1f1;
-    margin-right: 22px;
-    margin-bottom: 18px;
-    float: left;
+.c-left ul.cour li{
+    display: inline-block;
+    margin-bottom: 30px;
+    margin-right: 15px;
     background-color: #fff;
 }
-
-.main ul.cour li:hover {
+.c-left ul.cour li:hover {
     box-shadow: 1px 1px 1px 1px #e1e1e1;
 }
-
 ul.cour li img {
     display: inline-block;
     width: 223px;
@@ -346,161 +311,141 @@ ul.cour li img {
 }
 
 ul.cour li p {
-    width: 210px;
-    font-size: 12px;
-    color: #333;
+    width: 220px;
+    margin-left: 5px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-left: 5px;
+    font-size: 12px;
+    color: #333; 
 }
-
 ul.cour li span {
     display: block;
     margin-left: 5px;
 }
-
 ul.cour li span.des {
+    margin-bottom: 10px;
     color: #999;
-    margin-bottom: 10px;
 }
-
 ul.cour li span.num {
-    margin-bottom: 10px;
     width: 40px;
     height: 18px;
+    margin-bottom: 10px;
+    padding-left: 18px;
     border: 1px solid #e5e5e5;
     border-radius: 2px;
-    padding-left: 18px;
+    background: url(../images/sprites.png) -132px -19px no-repeat;
     font-size: 8px;
-    color: #999;
-    background: url(../images/sprites.png) -95px -6px no-repeat;
+    color: #999; 
 }
-
 ul.cour li span.price {
     font-size: 11px;
     color: #ff3f00;
 }
-
-.course .main ul.pages {
-    position: absolute;
+.course .c-left ul.pages {
     width: 311px;
     height: 20px;
-    right: 22px;
-    bottom: -30px;
+    margin-right: 30px;
+    float: right;
+   
 }
-
-.course .main ul.pages li {
+.course .c-left ul.pages li {
+    float: left;
     width: 20px;
     height: 20px;
-    text-align: center;
     margin-left: 9px;
-    float: left;
+    text-align: center;
     line-height: 20px;
     color: #666;
 }
 
-.course .main ul.pages li.pages-current {
+.course .c-left ul.pages li.pages-current {
     color: #9dd8b1;
 }
-
-.course .main ul.pages li:hover {
-    background-color: #9dd8b1;
+.course .c-left ul.pages li:hover {
     color: #fff;
+    background-color: #9dd8b1;
 }
-
-.course .main ul.pages li.pages-wrap {
+.course .c-left ul.pages li.pages-wrap {
     width: 30px;
-    background-color: #9dd8b1;
     color: #fff;
+    background-color: #9dd8b1;
 }
 
 .course .video {
     width: 223px;
     height: 230px;
-    position: absolute;
-    top: 0;
-    right: 0;
+    margin-bottom: 30px;
+    background-color: #fff;
 }
-
-.video h3,
-.list h3 {
-    color: #333;
+.video h3,.list h3 {
     height: 55px;
-    line-height: 55px;
-    font-size: 16px;
-    border-bottom: 1px solid #dddddd;
     margin-bottom: 20px;
     padding-left: 22px;
+    line-height: 55px;
+    font-size: 16px;
+    color: #333;
+    border-bottom: 1px solid #dddddd; 
 }
-
 .video p {
     padding-left: 22px;
     color: #666;
 }
-
 .video video {
     padding-left: 22px;
 }
-
 .course .list {
     width: 223px;
     height: 778px;
-    position: absolute;
-    top: 252px;
-    right: 0;
+    background-color: #fff;
 }
-
 .course .list li {
     width: 223px;
     height: 70px;
     padding-top: 19px;
     padding-left: 22px;
 }
-
 .course .list img {
+    float: left;
     width: 50px;
     height: 50px;
-    float: left;
     margin-right: 13px;
 }
-
 .course .list p {
+    margin-bottom: 12px;
     font-size: 14px;
     color: #333;
-    margin-bottom: 12px;
 }
 
 .course .list span {
     display: inline-block;
     width: 60px;
-    color: #99999c;
-    font-size: 9px;
     padding-left: 15px;
-    background: url(../images/sprites.png) -98px -6px no-repeat;
+    background: url(../images/sprites.png) -135px -19px no-repeat;
+    font-size: 9px;
+    color: #99999c;
 }
-
+/*课程展示部分结束*/
+/* 底部版权等信息 */
 footer {
     width: 100%;
+    height: 263px;
     background-color: #2c3339;
     font-size: 14px;
     color: #b0b2b3;
 }
 
 .footer-wrap {
-    width: 1200px;
     height: 263px;
-    overflow: hidden;
     margin: 0 auto;
-    position: relative;
+    padding-top: 80px;
 }
-
-.footer-wrap .copyright {
-    position: absolute;
-    top: 93px;
-    left: 52px;
+.footer-wrap .copyright{
+    float: left;
 }
-
+.footer-wrap .ul-wrap{
+    float: right;
+}
 .footer-wrap .copyright h2 {
     font-size: 22px;
     font-weight: 300;
@@ -516,38 +461,26 @@ footer {
     font-size: 12.5px;
     line-height: 26.5px;
 }
-
-.footer-wrap ul.ul-wrap {
-    position: absolute;
-    top: 82px;
-    right: 138px;
-}
-
 .footer-wrap ul.ul-wrap li {
     float: left;
 }
-
 .footer-wrap ul ul li {
     clear: both;
     margin-right: 0;
     padding-right: 70px
 }
-
 .footer-wrap ul ul li h3 {
     font-size: 12px;
     font-weight: 300;
 }
-
 .footer-wrap ul ul li a {
     color: #b0b2b3;
     line-height: 28px;
 }
-
 .footer-wrap ul ul li a:hover {
     text-decoration: underline;
     text-decoration-color: #b0b2b3;
 }
-
 .footer-wrap ul ul li a span {
     display: inline-block;
     width: 26px;
@@ -560,37 +493,37 @@ footer {
 /*登录框界面*/
 
 .login {
-    width: 100%;
-    height: 100vh;
-    background-color: #323232;
-    opacity: 0.8;
-    z-index: 999;
+    display: none;
     position: fixed;
+    z-index: 999;
     left: 0;
     top: 0;
-    display: none;
+    right:0;
+    bottom: 0;
+    background-color: #323232;
+    opacity: 0.8; 
 }
-
 .login div {
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     width: 387px;
     height: 289px;
+    padding: 30px 40px;
     background-color: #fff;
     opacity: 1;
-    position: absolute;
-    top: 30vh;
-    left: 37%;
-    z-index: 1000;
-    padding: 30px 40px;
 }
 
 .login div span {
     display: block;
-    width: 15px;
-    height: 15px;
     position: absolute;
     right: 8px;
     top: 8px;
-    background: url(../images/sprites.png) -8px -2px no-repeat;
+    width: 25px;
+    height: 25px;
+    background:url(../images/sprites.png) -59px -14px no-repeat;
 }
 
 .login div h3 {
@@ -601,16 +534,16 @@ footer {
 .login div input {
     width: 295px;
     height: 45px;
-    border: 1px solid #dfdfdf;
-    background-color: #fafafa;
     margin-bottom: 15px;
     padding-left: 12px;
+    border: 1px solid #dfdfdf;
+    background-color: #fafafa;
 }
 
 .login div button {
     width: 295px;
     height: 35px;
+    color: #fff;
     background-color: #19a137;
     border: 1px solid #19a137;
-    color: #fff;
 }
